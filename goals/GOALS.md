@@ -117,11 +117,11 @@
 - [x] Handle image orientation
 
 ### 2.5 Page Ordering
-- [ ] Implement natural sort for pages
-- [ ] Support numeric extract from filenames
-- [ ] Handle folder + file ordering
-- [ ] Add manual reorder capability
-- [ ] Support reverse order (right-to-left)
+- [x] Implement natural sort for pages
+- [x] Support numeric extract from filenames
+- [x] Handle folder + file ordering
+- [x] Add manual reorder capability
+- [x] Support reverse order (right-to-left)
 
 ### 2.6 Duplicate Detection
 - [ ] Implement MD5/SHA-256 hashing
