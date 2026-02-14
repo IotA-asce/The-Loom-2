@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Loom 2 — Library</title>
+    <style>
+        /* CSS Custom Properties */
+        :root {
+            --color-bg: #F5F5F7;
+            --color-bg-secondary: #FAFAFA;
+            --color-white: #FFFFFF;
+            --color-text-primary: #1D1D1F;
+            --color-text-secondary: #86868B;
+            --color-border: rgba(0, 0, 0, 0.08);
+            --color-border-hover: rgba(0, 0, 0, 0.15);
+            --color-accent: #6366F1;
+            --color-accent-hover: #4F46E5;
+            --color-accent-light: rgba(99, 102, 241, 0.1);
+            --color-success: #34C759;
+            --color-warning: #FF9500;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --transition-fast: 200ms ease-out;
+            --transition-base: 300ms ease-out;
+            --transition-slow: 500ms ease-out;
+        }
+
+        /* Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: opacity var(--transition-fast);
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--color-text-primary);
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-link.active {
+            color: var(--color-text-primary);
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        }
+
+        .btn-icon {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            background: transparent;
+            color: var(--color-text-secondary);
+            font-size: 1.125rem;
+        }
+
+        .btn-icon:hover {
+            background: rgba(0, 0, 0, 0.04);
+            color: var(--color-text-primary);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .page-title {
+            flex: 1;
+        }
+
+        .page-title h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.375rem;
+            line-height: 1.2;
+        }
+
+        .page-title p {
+            font-size: 1.0625rem;
+            color: var(--color-text-secondary);
+            font-weight: 400;
+        }
+
+        /* Search */
+        .search-container {
+            position: relative;
+            width: 280px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.625rem 1rem 0.625rem 2.75rem;
+            font-size: 0.9375rem;
+            font-family: inherit;
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            outline: none;
+            transition: all var(--transition-base);
+        }
+
+        .search-input::placeholder {
+            color: var(--color-text-secondary);
+        }
+
+        .search-input:hover {
+            border-color: var(--color-border-hover);
+        }
+
+        .search-input:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px var(--color-accent-light);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-secondary);
+            font-size: 0.9375rem;
+            pointer-events: none;
+            transition: color var(--transition-fast);
+        }
+
+        .search-input:focus + .search-icon {
+            color: var(--color-accent);
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* Manga Card */
+        .manga-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .manga-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .manga-cover {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #E8E8ED 0%, #D2D2D7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .manga-cover::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .manga-card:hover .manga-cover::before {
+            opacity: 1;
+        }
+
+        /* Cover gradients for variety */
+        .manga-cover.gradient-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .manga-cover.gradient-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .manga-cover.gradient-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .manga-cover.gradient-4 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .manga-cover.gradient-5 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .manga-cover.gradient-6 {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .manga-cover.gradient-7 {
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+        }
+
+        .manga-cover.gradient-8 {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+
+        .cover-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            padding: 0.25rem 0.625rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .status-badge.analyzed {
+            color: var(--color-success);
+        }
+
+        .status-badge.analyzing {
+            color: var(--color-accent);
+        }
+
+        .status-badge.new {
+            color: var(--color-warning);
+        }
+
+        .manga-card:hover .status-badge {
+            transform: scale(1.05);
+        }
+
+        .manga-info {
+            padding: 1rem;
+        }
+
+        .manga-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            letter-spacing: -0.01em;
+        }
+
+        .manga-chapters {
+            font-size: 0.8125rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        /* Empty State Card */
+        .empty-card {
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+            border: 2px dashed var(--color-border);
+            aspect-ratio: 3/4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .empty-card:hover {
+            border-color: var(--color-accent);
+            background: var(--color-accent-light);
+        }
+
+        .empty-icon {
+            font-size: 2rem;
+            color: var(--color-text-secondary);
+            transition: all var(--transition-base);
+        }
+
+        .empty-card:hover .empty-icon {
+            color: var(--color-accent);
+            transform: scale(1.1);
+        }
+
+        .empty-text {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-align: center;
+            padding: 0 1rem;
+            transition: color var(--transition-base);
+        }
+
+        .empty-card:hover .empty-text {
+            color: var(--color-accent);
+        }
+
+        /* Add New Card */
+        .add-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            border: 2px dashed var(--color-border);
+            aspect-ratio: 3/4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .add-card:hover {
+            border-color: var(--color-accent);
+            border-style: solid;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .add-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--color-accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            transition: all var(--transition-base);
+        }
+
+        .add-card:hover .add-icon {
+            background: var(--color-accent);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .add-text {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .add-subtext {
+            font-size: 0.8125rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0.875rem 1.25rem;
+            }
+
+            .main {
+                padding: 2rem 1.25rem 3rem;
+            }
+
+            .page-header {
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+
+            .page-title h1 {
+                font-size: 1.75rem;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .nav-link:not(.active) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.875rem;
+            }
+
+            .manga-info {
+                padding: 0.75rem;
+            }
+
+            .manga-title {
+                font-size: 0.875rem;
+            }
+
+            .manga-chapters {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .manga-card, .empty-card, .add-card {
+            animation: fadeIn 0.5s ease-out backwards;
+        }
+
+        .manga-card:nth-child(1) { animation-delay: 0ms; }
+        .manga-card:nth-child(2) { animation-delay: 50ms; }
+        .manga-card:nth-child(3) { animation-delay: 100ms; }
+        .manga-card:nth-child(4) { animation-delay: 150ms; }
+        .manga-card:nth-child(5) { animation-delay: 200ms; }
+        .manga-card:nth-child(6) { animation-delay: 250ms; }
+        .empty-card { animation-delay: 300ms; }
+        .add-card { animation-delay: 350ms; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <span>🧵</span>
+                <span>The Loom 2</span>
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Library</a>
+                <a href="#" class="nav-link">Discover</a>
+                <a href="#" class="nav-link">Settings</a>
+                <button class="btn btn-primary">
+                    <span>+</span>
+                    <span>New Manga</span>
+                </button>
+                <button class="btn btn-icon" title="Settings">⚙️</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-title">
+                <h1>Your Library</h1>
+                <p>Manage and explore your manga collection</p>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search your library...">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+
+        <!-- Card Grid -->
+        <div class="card-grid">
+            <!-- Manga Card 1: Analyzed -->
+            <article class="manga-card">
+                <div class="manga-cover gradient-1">
+                    <div class="cover-pattern"></div>
+                    <span class="status-badge analyzed">Analyzed</span>
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Demon Slayer: Kimetsu no Yaiba</h3>
+                    <p class="manga-chapters">205 chapters</p>
+                </div>
+            </article>
+
+            <!-- Manga Card 2: Analyzed -->
+            <article class="manga-card">
+                <div class="manga-cover gradient-2">
+                    <div class="cover-pattern"></div>
+                    <span class="status-badge analyzed">Analyzed</span>
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Jujutsu Kaisen</h3>
+                    <p class="manga-chapters">236 chapters</p>
+                </div>
+            </article>
+
+            <!-- Manga Card 3: Analyzing -->
+            <article class="manga-card">
+                <div class="manga-cover gradient-3">
+                    <div class="cover-pattern"></div>
+                    <span class="status-badge analyzing">Analyzing</span>
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Chainsaw Man</h3>
+                    <p class="manga-chapters">153 chapters</p>
+                </div>
+            </article>
+
+            <!-- Manga Card 4: New -->
+            <article class="manga-card">
+                <div class="manga-cover gradient-4">
+                    <div class="cover-pattern"></div>
+                    <span class="status-badge new">New</span>
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Spy × Family</h3>
+                    <p class="manga-chapters">87 chapters</p>
+                </div>
+            </article>
+
+            <!-- Manga Card 5: Analyzed -->
+            <article class="manga-card">
+                <div class="manga-cover gradient-5">
+                    <div class="cover-pattern"></div>
+                    <span class="status-badge analyzed">Analyzed</span>
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">My Hero Academia</h3>
+                    <p class="manga-chapters">402 chapters</p>
+                </div>
+            </article>
+
+            <!-- Manga Card 6: New -->
+            <article class="manga-card">
+                <div class="manga-cover gradient-6">
+                    <div class="cover-pattern"></div>
+                    <span class="status-badge new">New</span>
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">One Punch Man</h3>
+                    <p class="manga-chapters">198 chapters</p>
+                </div>
+            </article>
+
+            <!-- Manga Card 7: Analyzing -->
+            <article class="manga-card">
+                <div class="manga-cover gradient-7">
+                    <div class="cover-pattern"></div>
+                    <span class="status-badge analyzing">Analyzing</span>
+                </div>
+                <div class="manga-info">
+                    <h3 class="manga-title">Tokyo Ghoul</h3>
+                    <p class="manga-chapters">144 chapters</p>
+                </div>
+            </article>
+
+            <!-- Empty State Card -->
+            <div class="empty-card">
+                <span class="empty-icon">📂</span>
+                <span class="empty-text">Drop manga here</span>
+            </div>
+
+            <!-- Add New Card -->
+            <div class="add-card">
+                <div class="add-icon">+</div>
+                <span class="add-text">Add Manga</span>
+                <span class="add-subtext">Browse or import</span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

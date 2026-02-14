@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Viewer - Attack on Titan</title>
+    <style>
+        /* ========================================
+           CSS Variables & Reset
+           ======================================== */
+        :root {
+            --color-bg: #FAFAFA;
+            --color-surface: #FFFFFF;
+            --color-border: #E5E7EB;
+            --color-text-primary: #111827;
+            --color-text-secondary: #6B7280;
+            --color-text-tertiary: #9CA3AF;
+            --color-accent: #6366F1;
+            --color-accent-hover: #4F46E5;
+            --color-red: #EF4444;
+            --color-red-hover: #DC2626;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition-fast: 200ms ease-out;
+            --transition-normal: 300ms ease-out;
+            --transition-slow: 500ms ease-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* ========================================
+           Layout Container
+           ======================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========================================
+           Header Section
+           ======================================== */
+        .header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border: none;
+            background: transparent;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .back-btn:hover {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+        }
+
+        .back-arrow {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--transition-fast);
+        }
+
+        .back-btn:hover .back-arrow {
+            transform: translateX(-3px);
+        }
+
+        .header-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .header-title span {
+            color: var(--color-text-secondary);
+            font-weight: 400;
+        }
+
+        .export-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .export-btn:hover {
+            border-color: var(--color-text-tertiary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .export-icon {
+            width: 12px;
+            height: 12px;
+            transition: transform var(--transition-fast);
+        }
+
+        .export-btn:hover .export-icon {
+            transform: translateY(1px);
+        }
+
+        /* ========================================
+           Tab Navigation
+           ======================================== */
+        .tabs-section {
+            background-color: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .tabs-container {
+            display: flex;
+            gap: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .tab {
+            position: relative;
+            padding: 16px 20px;
+            border: none;
+            background: transparent;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color var(--transition-normal);
+        }
+
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background-color: var(--color-accent);
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+
+        .tab:hover {
+            color: var(--color-text-primary);
+        }
+
+        .tab.active {
+            color: var(--color-accent);
+        }
+
+        .tab.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* ========================================
+           Main Content
+           ======================================== */
+        .main-content {
+            padding: 40px 0 60px;
+        }
+
+        /* ========================================
+           Timeline Section
+           ======================================== */
+        .timeline-section {
+            margin-bottom: 40px;
+        }
+
+        .timeline-header {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-secondary);
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--color-border);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .timeline-chapter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chapter-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-text-tertiary);
+            transition: color var(--transition-normal);
+        }
+
+        .timeline-chapter:hover .chapter-label {
+            color: var(--color-text-primary);
+        }
+
+        .chapter-events {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .event-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 2px solid var(--color-text-tertiary);
+            background-color: var(--color-surface);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .event-dot:hover {
+            transform: scale(1.3);
+            border-color: var(--color-accent);
+        }
+
+        .event-dot.past {
+            border-color: var(--color-text-tertiary);
+            background-color: var(--color-text-tertiary);
+        }
+
+        .event-dot.current {
+            width: 12px;
+            height: 12px;
+            border-color: var(--color-accent);
+            background-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .event-dot.anchor {
+            border-color: var(--color-red);
+            background-color: var(--color-red);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+        }
+
+        /* Timeline connector lines */
+        .timeline-connector {
+            flex: 1;
+            height: 2px;
+            background-color: var(--color-border);
+            margin: 0 8px;
+            position: relative;
+            top: 14px;
+        }
+
+        /* ========================================
+           Detail Card
+           ======================================== */
+        .detail-section {
+            margin-bottom: 40px;
+        }
+
+        .detail-card {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            max-width: 680px;
+            margin: 0 auto;
+            transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+        }
+
+        .detail-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .detail-header {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .detail-chapter {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .detail-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        .anchor-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background-color: rgba(239, 68, 68, 0.08);
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+        }
+
+        .anchor-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--color-red);
+        }
+
+        .anchor-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-red);
+        }
+
+        .detail-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .detail-meta {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .meta-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text-tertiary);
+        }
+
+        .meta-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .meta-value.impact-high {
+            color: var(--color-red);
+        }
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: auto;
+            padding: 8px 16px;
+            background-color: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            color: var(--color-text-primary);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .explore-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            background-color: rgba(99, 102, 241, 0.04);
+        }
+
+        .explore-btn .arrow {
+            transition: transform var(--transition-fast);
+        }
+
+        .explore-btn:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        /* ========================================
+           Key Events List
+           ======================================== */
+        .events-section {
+            margin-bottom: 40px;
+        }
+
+        .events-header {
+            margin-bottom: 20px;
+        }
+
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background-color: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid transparent;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .event-item:hover {
+            border-color: var(--color-border);
+            box-shadow: var(--shadow-sm);
+            transform: translateX(4px);
+        }
+
+        .event-item.active {
+            border-color: var(--color-accent);
+            background-color: rgba(99, 102, 241, 0.04);
+        }
+
+        .event-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: transform var(--transition-fast);
+        }
+
+        .event-item:hover .event-indicator {
+            transform: scale(1.2);
+        }
+
+        .event-indicator.inactive {
+            border: 2px solid var(--color-text-tertiary);
+            background-color: var(--color-surface);
+        }
+
+        .event-indicator.active {
+            background-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+
+        .event-indicator.anchor {
+            background-color: var(--color-red);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+        }
+
+        .event-name {
+            flex: 1;
+            font-size: 14px;
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+
+        .event-item.active .event-name {
+            font-weight: 600;
+        }
+
+        .current-marker {
+            font-size: 12px;
+            color: var(--color-accent);
+            font-weight: 500;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all var(--transition-normal);
+        }
+
+        .event-item.active .current-marker {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ========================================
+           Action Bar
+           ======================================== */
+        .action-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 16px;
+            max-width: 680px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-text-secondary);
+            border: 1px solid var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-text-tertiary);
+            color: var(--color-text-primary);
+            background-color: var(--color-bg);
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: white;
+            box-shadow: 0 1px 3px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-hover);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary .arrow {
+            transition: transform var(--transition-fast);
+        }
+
+        .btn-primary:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        /* ========================================
+           Responsive Design
+           ======================================== */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 12px 16px;
+            }
+
+            .header-title {
+                font-size: 15px;
+            }
+
+            .tabs-container {
+                padding: 0 16px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab {
+                padding: 14px 16px;
+                white-space: nowrap;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .main-content {
+                padding: 24px 0 40px;
+            }
+
+            /* Vertical Timeline on Mobile */
+            .timeline {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-chapter {
+                flex-direction: row;
+                width: 100%;
+                justify-content: flex-start;
+                gap: 16px;
+            }
+
+            .chapter-events {
+                flex: 1;
+                justify-content: flex-start;
+            }
+
+            .detail-card {
+                padding: 24px;
+            }
+
+            .detail-title {
+                font-size: 20px;
+            }
+
+            .detail-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .explore-btn {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .action-bar {
+                flex-direction: column-reverse;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ========================================
+           Animations
+           ======================================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .detail-card {
+            animation: fadeIn 500ms ease-out;
+        }
+
+        .event-item {
+            animation: fadeIn 500ms ease-out;
+        }
+
+        .event-item:nth-child(1) { animation-delay: 50ms; }
+        .event-item:nth-child(2) { animation-delay: 100ms; }
+        .event-item:nth-child(3) { animation-delay: 150ms; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="back-btn">
+                    <svg class="back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back
+                </button>
+                <h1 class="header-title">Attack on Titan <span>— Analysis Results</span></h1>
+            </div>
+            <button class="export-btn">
+                Export
+                <svg class="export-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tabs-section">
+        <div class="tabs-container">
+            <button class="tab">Summary</button>
+            <button class="tab active">Timeline <span class="tab-badge"></span></button>
+            <button class="tab">Characters</button>
+            <button class="tab">Themes</button>
+            <button class="tab">Relationships</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content container">
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <div class="timeline-header">
+                <h2 class="section-title">Timeline</h2>
+            </div>
+            <div class="timeline-wrapper">
+                <div class="timeline">
+                    <div class="timeline-chapter">
+                        <div class="chapter-events">
+                            <div class="event-dot past" title="Event 1"></div>
+                            <div class="event-dot past" title="Event 2"></div>
+                            <div class="event-dot past" title="Event 3"></div>
+                        </div>
+                        <span class="chapter-label">Chapter 1</span>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <div class="timeline-chapter">
+                        <div class="chapter-events">
+                            <div class="event-dot past" title="Event 4"></div>
+                            <div class="event-dot anchor" title="Anchor Point"></div>
+                            <div class="event-dot current" title="Current Event"></div>
+                            <div class="event-dot" title="Future Event"></div>
+                        </div>
+                        <span class="chapter-label">Chapter 5</span>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <div class="timeline-chapter">
+                        <div class="chapter-events">
+                            <div class="event-dot" title="Future Event"></div>
+                            <div class="event-dot" title="Future Event"></div>
+                        </div>
+                        <span class="chapter-label">Chapter 10</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detail Card -->
+        <section class="detail-section">
+            <div class="detail-card">
+                <div class="detail-header">
+                    <div class="detail-chapter">Chapter 5</div>
+                    <h3 class="detail-title">The Battle of Trost</h3>
+                </div>
+                
+                <div class="anchor-badge">
+                    <svg class="anchor-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                    <span class="anchor-text">Anchor Point: "Eren's Transformation"</span>
+                </div>
+                
+                <p class="detail-description">
+                    This pivotal moment changes everything. The discovery of Eren's titan abilities 
+                    sets in motion the conflict that will define the rest of the story. What begins 
+                    as a desperate defense of humanity's last stronghold evolves into a revelation 
+                    that challenges everything the characters thought they knew about their world.
+                </p>
+                
+                <div class="detail-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Impact:</span>
+                        <span class="meta-value impact-high">High</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Confidence:</span>
+                        <span class="meta-value">94%</span>
+                    </div>
+                    <button class="explore-btn">
+                        Explore Branches
+                        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Events List -->
+        <section class="events-section">
+            <div class="events-header">
+                <h2 class="section-title">Key Events</h2>
+            </div>
+            <div class="events-list">
+                <div class="event-item">
+                    <div class="event-indicator inactive"></div>
+                    <span class="event-name">Eren joins Scout Regiment</span>
+                    <span class="current-marker">←</span>
+                </div>
+                <div class="event-item active">
+                    <div class="event-indicator active"></div>
+                    <span class="event-name">Eren's first transformation</span>
+                    <span class="current-marker">←</span>
+                </div>
+                <div class="event-item">
+                    <div class="event-indicator anchor"></div>
+                    <span class="event-name">The Colossal Titan appears</span>
+                    <span class="current-marker">←</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+            <button class="btn btn-secondary">Re-Analyze</button>
+            <button class="btn btn-primary">
+                Find Anchors
+                <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </main>
+</body>
+</html>
