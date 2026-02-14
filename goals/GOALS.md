@@ -36,7 +36,7 @@
 - [x] Implement encrypted storage for API keys (crypto-js)
 
 ### 1.3 LLM Provider Abstraction
-- [ ] Define LLMProvider interface
+- [x] Define LLMProvider interface
 - [ ] Implement GeminiProvider (primary)
 - [ ] Implement OpenAIProvider (fallback)
 - [ ] Implement AnthropicProvider (optional)
