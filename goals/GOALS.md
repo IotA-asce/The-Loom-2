@@ -109,12 +109,12 @@
 - [x] Show per-page progress
 
 ### 2.4 Image Processing
-- [ ] Implement natural sort algorithm
-- [ ] Create thumbnail generator (200x280px)
-- [ ] Generate WebP thumbnails
-- [ ] Add image validation
-- [ ] Detect double-page spreads
-- [ ] Handle image orientation
+- [x] Implement natural sort algorithm
+- [x] Create thumbnail generator (200x280px)
+- [x] Generate WebP thumbnails
+- [x] Add image validation
+- [x] Detect double-page spreads
+- [x] Handle image orientation
 
 ### 2.5 Page Ordering
 - [ ] Implement natural sort for pages
