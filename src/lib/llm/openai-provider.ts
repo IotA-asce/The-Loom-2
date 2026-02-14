@@ -12,7 +12,6 @@ import type {
   StreamChunk,
   Message,
   MultimodalMessage,
-  TokenUsage,
   ProviderCapabilities,
 } from './types';
 import { LLMErrorCode } from './types';
@@ -144,7 +143,7 @@ export class OpenAIProvider implements LLMProvider {
   async complete(request: LLMRequest): Promise<LLMResponse> {
     try {
       const body = this.buildRequestBody(request);
-      const modelName = request.model ?? this.config.defaultModel;
+      request.model ?? this.config.defaultModel;
 
       const response = await fetch(`${this.baseUrl}/chat/completions`, {
         method: 'POST',
@@ -311,7 +310,8 @@ export class OpenAIProvider implements LLMProvider {
         messages.push({
           role: msg.role === 'model' ? 'assistant' : msg.role,
           content: msg.content,
-          name: msg.name,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ...(msg as any).name ? { name: (msg as any).name } : {},
         });
       } else if ('content' in msg && Array.isArray(msg.content)) {
         const content: OpenAIMessage['content'] = [];
@@ -332,7 +332,8 @@ export class OpenAIProvider implements LLMProvider {
         messages.push({
           role: msg.role === 'model' ? 'assistant' : msg.role,
           content,
-          name: msg.name,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ...(msg as any).name ? { name: (msg as any).name } : {},
         });
       }
     }

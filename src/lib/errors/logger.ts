@@ -58,7 +58,7 @@ interface LoggerConfig {
  * Default logger configuration
  */
 const defaultConfig: LoggerConfig = {
-  minLevel: process.env.NODE_ENV === 'development' ? LogLevel.DEBUG : LogLevel.INFO,
+  minLevel: import.meta.env.DEV ? LogLevel.DEBUG : LogLevel.INFO,
   maxEntries: 1000,
   persistToStorage: false, // Could be enabled for production
   includeStackTrace: true,

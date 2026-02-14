@@ -116,27 +116,10 @@ export abstract class BaseRepository<T extends Entity> {
     const total = await collection.count();
 
     // Apply sorting
-    if (options.sortBy) {
-      if (typeof options.sortBy === 'function') {
-        // Note: Dexie doesn't support custom sort functions directly
-        // We'd need to fetch all and sort in memory
-        const all = await collection.toArray();
-        all.sort(options.sortBy);
-        
-        // Apply pagination manually
-        const offset = options.offset ?? 0;
-        const limit = options.limit ?? all.length;
-        const items = all.slice(offset, offset + limit);
-        
-        return {
-          items,
-          total,
-          offset,
-          limit,
-          hasMore: offset + limit < total,
-        };
-      } else {
-        collection = collection.sortBy(options.sortBy as string);
+    if (options.sortBy && typeof options.sortBy !== 'function') {
+      collection = this.table.orderBy(options.sortBy as string);
+      if (options.sortOrder === 'desc') {
+        collection = collection.reverse();
       }
     }
 
@@ -188,7 +171,8 @@ export abstract class BaseRepository<T extends Entity> {
    * Update entity by ID
    */
   async update(id: string, changes: Partial<Omit<T, 'id'>>): Promise<T | undefined> {
-    await this.table.update(id, changes);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await this.table.update(id, changes as any);
     return this.findById(id);
   }
 
@@ -203,7 +187,8 @@ export abstract class BaseRepository<T extends Entity> {
     await this.table.bulkUpdate(
       items.map((item) => ({
         key: item.id!,
-        changes,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        changes: changes as any,
       }))
     );
     return items.length;

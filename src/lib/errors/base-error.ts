@@ -13,7 +13,7 @@ export type ErrorSeverity = 'fatal' | 'error' | 'warning' | 'info';
 /**
  * Error context for additional debugging information
  */
-export interface ErrorContext {
+export interface ErrorContext extends Record<string, unknown> {
   /** Component or module where error occurred */
   component?: string;
   /** Operation being performed */
@@ -79,9 +79,10 @@ export class AppError extends Error {
     this.recoverable = options.recoverable ?? true;
     this.cause = options.cause;
 
-    // Maintain proper stack trace
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, this.constructor);
+    // Maintain proper stack trace (V8 environments)
+    if ('captureStackTrace' in Error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (Error as any).captureStackTrace(this, this.constructor);
     }
   }
 

@@ -53,7 +53,7 @@ export interface UIState {
   
   // Modal state
   activeModal: ModalType;
-  modalData: Record<string, unknown> | null;
+  modalData?: Record<string, unknown> | null;
   
   // Toast notifications
   toasts: Toast[];
@@ -140,12 +140,12 @@ export const useUIStore = create<UIState>()(
         set({ sidebarOpen: !get().sidebarOpen }, false, 'toggleSidebar');
       },
       
-      openModal: (activeModal, modalData = null) => {
-        set({ activeModal, modalData }, false, 'openModal');
+      openModal: (activeModal, modalData) => {
+        set({ activeModal, modalData: modalData || undefined }, false, 'openModal');
       },
       
       closeModal: () => {
-        set({ activeModal: null, modalData: null }, false, 'closeModal');
+        set({ activeModal: null, modalData: undefined }, false, 'closeModal');
       },
       
       addToast: (toast) => {
@@ -188,7 +188,7 @@ export const useUIStore = create<UIState>()(
     }),
     {
       name: 'UIStore',
-      enabled: process.env.NODE_ENV === 'development',
+      enabled: import.meta.env.DEV,
     }
   )
 );

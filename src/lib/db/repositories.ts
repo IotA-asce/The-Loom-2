@@ -6,7 +6,7 @@
  */
 
 import { db } from './database';
-import { BaseRepository, type QueryOptions, type PaginatedResult } from './repository';
+import { BaseRepository } from './repository';
 import type {
   Manga,
   Storyline,
@@ -457,7 +457,7 @@ export class ChapterRepository extends BaseRepository<Chapter> {
   /**
    * Reorder chapters in a branch
    */
-  async reorderChapters(branchId: string, newOrder: string[]): Promise<void> {
+  async reorderChapters(_branchId: string, newOrder: string[]): Promise<void> {
     await db.transaction('rw', this.table, async () => {
       for (let i = 0; i < newOrder.length; i++) {
         await this.update(newOrder[i], { order: i + 1 });

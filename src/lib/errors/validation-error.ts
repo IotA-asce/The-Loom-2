@@ -50,8 +50,8 @@ export class ValidationError extends AppError {
       severity: 'warning',
       context: {
         ...options.context,
-        schema: options.schema,
-        details: detailArray,
+        schemaName: options.schema,
+        details: detailArray as unknown as Record<string, unknown>,
       },
     });
     
@@ -113,11 +113,10 @@ export class RequiredFieldError extends ValidationError {
       {
         path: field,
         message: 'This field is required',
-        code: 'REQUIRED',
+        code: 'REQUIRED_FIELD',
       },
       options
     );
-    this.code = 'REQUIRED_FIELD';
   }
 }
 
@@ -139,10 +138,9 @@ export class TypeMismatchError extends ValidationError {
         code: 'TYPE_MISMATCH',
         value: actual,
         expected,
-      },
+      } as ValidationErrorDetail,
       options
     );
-    this.code = 'TYPE_MISMATCH';
   }
 }
 
@@ -158,20 +156,15 @@ export class RangeError extends ValidationError {
     options: { context?: Record<string, unknown> } = {}
   ) {
     let message: string;
-    let code: string;
     
     if (min !== undefined && max !== undefined) {
       message = `Must be between ${min} and ${max}`;
-      code = 'RANGE';
     } else if (min !== undefined) {
       message = `Must be at least ${min}`;
-      code = 'MIN';
     } else if (max !== undefined) {
       message = `Must be at most ${max}`;
-      code = 'MAX';
     } else {
       message = 'Invalid range';
-      code = 'RANGE';
     }
     
     super(
@@ -179,13 +172,12 @@ export class RangeError extends ValidationError {
       {
         path: field,
         message,
-        code,
+        code: 'RANGE_ERROR',
         value,
         expected: { min, max },
-      },
+      } as ValidationErrorDetail,
       options
     );
-    this.code = 'RANGE_ERROR';
   }
 }
 
@@ -204,12 +196,11 @@ export class FormatError extends ValidationError {
       {
         path: field,
         message: `Must match format: ${format}`,
-        code: 'FORMAT',
+        code: 'FORMAT_ERROR',
         value,
         expected: format,
-      },
+      } as ValidationErrorDetail,
       options
     );
-    this.code = 'FORMAT_ERROR';
   }
 }

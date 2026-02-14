@@ -390,7 +390,7 @@ export class LLMService {
   /**
    * Track token usage
    */
-  private trackTokenUsage(providerId: string, usage: TokenUsage): void {
+  private trackTokenUsage(providerId: string, usage: { promptTokens: number; completionTokens: number }): void {
     const current = this.tokenUsage.get(providerId) ?? { prompt: 0, completion: 0 };
     current.prompt += usage.promptTokens;
     current.completion += usage.completionTokens;

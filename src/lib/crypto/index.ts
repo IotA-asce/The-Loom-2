@@ -41,10 +41,7 @@ export const encryptData = (data: string): string => {
   
   try {
     const key = getEncryptionKey();
-    const encrypted = CryptoJS.AES.encrypt(data, key, {
-      mode: CryptoJS.mode.GCM,
-      padding: CryptoJS.pad.Pkcs7,
-    }).toString();
+    const encrypted = CryptoJS.AES.encrypt(data, key).toString();
     
     return `${ENCRYPTION_PREFIX}${encrypted}`;
   } catch (error) {
@@ -65,10 +62,7 @@ export const decryptData = (encryptedData: string): string => {
   try {
     const key = getEncryptionKey();
     const ciphertext = encryptedData.slice(ENCRYPTION_PREFIX.length);
-    const decrypted = CryptoJS.AES.decrypt(ciphertext, key, {
-      mode: CryptoJS.mode.GCM,
-      padding: CryptoJS.pad.Pkcs7,
-    });
+    const decrypted = CryptoJS.AES.decrypt(ciphertext, key);
     
     return decrypted.toString(CryptoJS.enc.Utf8);
   } catch (error) {

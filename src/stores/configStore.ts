@@ -265,7 +265,7 @@ export const useConfigStore = create<ConfigState>()(
     ),
     {
       name: 'ConfigStore',
-      enabled: process.env.NODE_ENV === 'development',
+      enabled: import.meta.env.DEV,
     }
   )
 );

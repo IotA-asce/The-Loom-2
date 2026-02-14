@@ -6,7 +6,7 @@
  */
 
 import { QueryClient, QueryCache, MutationCache } from '@tanstack/react-query';
-import { useToast } from '@/stores/uiStore';
+// Toast notifications will be integrated here in the future
 
 /**
  * Default retry function with exponential backoff
@@ -35,8 +35,9 @@ export const createQueryClient = (): QueryClient => {
       },
     }),
     mutationCache: new MutationCache({
-      onError: (error, variables, context, mutation) => {
-        console.error('Mutation error:', error);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      onError: (_error, _variables, _context, _mutation) => {
+        console.error('Mutation error:', _error);
       },
     }),
     defaultOptions: {

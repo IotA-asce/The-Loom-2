@@ -62,7 +62,7 @@ export class NetworkError extends AppError {
       severity: options.severity ?? 'error',
       context: {
         ...options.context,
-        statusCode: options.statusCode,
+        statusCode: options.statusCode as unknown as string,
         url: options.url,
         method: options.method,
         retried: options.retried,
@@ -118,7 +118,8 @@ export class TimeoutError extends NetworkError {
       ...options,
       severity: 'warning',
     });
-    this.code = 'TIMEOUT_ERROR';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (this as any).code = 'TIMEOUT_ERROR';
     this.timeoutMs = timeoutMs;
   }
 }
@@ -135,7 +136,8 @@ export class ConnectionError extends NetworkError {
       ...options,
       severity: 'error',
     });
-    this.code = 'CONNECTION_ERROR';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (this as any).code = 'CONNECTION_ERROR';
   }
 }
 
@@ -155,7 +157,8 @@ export class RateLimitError extends NetworkError {
       statusCode: 429,
       severity: 'warning',
     });
-    this.code = 'RATE_LIMIT_ERROR';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (this as any).code = 'RATE_LIMIT_ERROR';
     this.retryAfter = options.retryAfter;
   }
 

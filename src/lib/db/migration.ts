@@ -5,13 +5,13 @@
  * Uses Dexie's built-in migration support with custom migration scripts.
  */
 
-import Dexie from 'dexie';
+import { type Transaction } from 'dexie';
 import { LoomDatabase, DATABASE_NAME, DATABASE_VERSION } from './database';
 
 /**
  * Migration function type
  */
-type MigrationFunction = (trans: Dexie.Transaction) => Promise<void>;
+type MigrationFunction = (trans: Transaction) => Promise<void>;
 
 /**
  * Migration definition
@@ -90,7 +90,7 @@ export const runMigrations = async (db: LoomDatabase): Promise<void> => {
     
     try {
       await db.transaction('rw', db.tables, async () => {
-        await migration.migrate(db as unknown as Dexie.Transaction);
+        await migration.migrate(db as unknown as Transaction);
       });
       
       await setCurrentVersion(migration.version);

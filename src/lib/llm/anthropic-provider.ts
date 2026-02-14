@@ -12,7 +12,6 @@ import type {
   StreamChunk,
   Message,
   MultimodalMessage,
-  TokenUsage,
   ProviderCapabilities,
 } from './types';
 import { LLMErrorCode } from './types';

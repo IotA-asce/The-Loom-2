@@ -42,7 +42,7 @@ export class LLMError extends AppError {
       severity: options.severity ?? 'error',
       context: {
         ...options.context,
-        llmCode,
+        llmCode: llmCode as unknown as string,
         provider: options.provider,
         model: options.model,
       },

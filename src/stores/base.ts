@@ -83,7 +83,7 @@ export const createBaseState = <T extends object>(
  */
 export const defaultDevToolsConfig: DevToolsConfig = {
   name: 'The Loom 2 Store',
-  enabled: process.env.NODE_ENV === 'development',
+  enabled: import.meta.env.DEV,
 };
 
 /**

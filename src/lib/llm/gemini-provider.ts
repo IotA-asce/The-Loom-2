@@ -12,7 +12,6 @@ import type {
   StreamChunk,
   Message,
   MultimodalMessage,
-  TokenUsage,
   ProviderCapabilities,
   RequestMetrics,
 } from './types';

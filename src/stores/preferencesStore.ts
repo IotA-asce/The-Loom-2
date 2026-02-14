@@ -111,7 +111,7 @@ export const usePreferencesStore = create<PreferencesState>()(
     ),
     {
       name: 'PreferencesStore',
-      enabled: process.env.NODE_ENV === 'development',
+      enabled: import.meta.env.DEV,
     }
   )
 );
