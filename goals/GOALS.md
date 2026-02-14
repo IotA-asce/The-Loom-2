@@ -18,7 +18,7 @@
 - [x] Initialize Vite + React + TypeScript project
 - [x] Configure path aliases (@/ for src)
 - [x] Enable strict TypeScript mode
-- [ ] Setup ESLint + Prettier configuration
+- [x] Setup ESLint + Prettier configuration
 - [ ] Configure lint-staged and husky pre-commit hooks
 - [ ] Install core dependencies (Zustand, React Query, Dexie)
 - [ ] Verify dev server starts in < 2s
