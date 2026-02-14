@@ -88,7 +88,7 @@
 - [x] Create file type detection utility
 - [x] Implement drag-and-drop hook
 - [x] Create file reader utility with progress
-- [ ] Support CBZ/ZIP format
+- [x] Support CBZ/ZIP format
 - [ ] Support CBR/RAR format
 - [ ] Support PDF format
 - [ ] Support individual images (PNG, JPG, WebP)
