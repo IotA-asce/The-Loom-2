@@ -89,7 +89,7 @@
 - [x] Implement drag-and-drop hook
 - [x] Create file reader utility with progress
 - [x] Support CBZ/ZIP format
-- [ ] Support CBR/RAR format
+- [x] Support CBR/RAR format
 - [ ] Support PDF format
 - [ ] Support individual images (PNG, JPG, WebP)
 
