@@ -148,12 +148,12 @@
 - [x] Handle partial processing recovery
 
 ### 2.9 UI Components
-- [ ] Create DropZone component
-- [ ] Create ProgressModal component
-- [ ] Create MangaCard component
-- [ ] Create LibraryGrid component
-- [ ] Create DuplicateModal component
-- [ ] Create ChapterSegmentationReview component
+- [x] Create DropZone component
+- [x] Create ProgressModal component
+- [x] Create MangaCard component
+- [x] Create LibraryGrid component
+- [x] Create DuplicateModal component
+- [x] Create ChapterSegmentationReview component
 
 ---
 

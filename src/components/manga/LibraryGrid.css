@@ -1,0 +1,39 @@
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.library-add-card {
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  aspect-ratio: 200 / 380;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #86868b;
+}
+
+.library-add-card:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.library-add-icon {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .library-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+}

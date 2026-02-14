@@ -1,0 +1,86 @@
+.duplicate-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.duplicate-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.duplicate-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: #1d1d1f;
+}
+
+.duplicate-message {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.duplicate-hint {
+  font-size: 14px;
+  color: #86868b;
+  margin-bottom: 24px;
+}
+
+.duplicate-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.duplicate-actions button {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-skip {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.btn-skip:hover {
+  background: #f3f4f6;
+}
+
+.btn-replace {
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  color: #92400e;
+}
+
+.btn-replace:hover {
+  background: #fde68a;
+}
+
+.btn-import {
+  background: #6366f1;
+  border: none;
+  color: white;
+}
+
+.btn-import:hover {
+  background: #4f46e5;
+}

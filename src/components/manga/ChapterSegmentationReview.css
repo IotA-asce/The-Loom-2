@@ -1,0 +1,93 @@
+.segmentation-review {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.review-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: #1d1d1f;
+}
+
+.review-subtitle {
+  font-size: 14px;
+  color: #86868b;
+  margin: 0 0 20px;
+}
+
+.segments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.segment-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.segment-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.segment-type {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 13px;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.segment-pages {
+  font-size: 14px;
+  color: #374151;
+}
+
+.segment-confidence {
+  font-size: 12px;
+  color: #86868b;
+  margin-left: auto;
+}
+
+.segment-thumbnails {
+  display: flex;
+  gap: 8px;
+}
+
+.segment-thumbnails img {
+  width: 60px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+}
+
+.segment-confirm {
+  width: 100%;
+  padding: 14px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.segment-confirm:hover {
+  background: #4f46e5;
+}
