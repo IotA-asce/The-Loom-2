@@ -91,7 +91,7 @@
 - [x] Support CBZ/ZIP format
 - [x] Support CBR/RAR format
 - [x] Support PDF format
-- [ ] Support individual images (PNG, JPG, WebP)
+- [x] Support individual images (PNG, JPG, WebP)
 
 ### 2.2 Archive Processing
 - [ ] Implement ZIP/CBZ extractor (JSZip)
