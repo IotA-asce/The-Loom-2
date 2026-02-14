@@ -90,7 +90,7 @@
 - [x] Create file reader utility with progress
 - [x] Support CBZ/ZIP format
 - [x] Support CBR/RAR format
-- [ ] Support PDF format
+- [x] Support PDF format
 - [ ] Support individual images (PNG, JPG, WebP)
 
 ### 2.2 Archive Processing
