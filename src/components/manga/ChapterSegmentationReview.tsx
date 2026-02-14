@@ -5,7 +5,7 @@ import './ChapterSegmentationReview.css'
 export interface ChapterSegmentationReviewProps {
   segments: ChapterSegment[]
   pageThumbnails: string[]
-  onAdjustBoundary: (segmentIndex: number, newStartPage: number) => void
+  _onAdjustBoundary: (segmentIndex: number, newStartPage: number) => void
   onConfirm: () => void
 }
 

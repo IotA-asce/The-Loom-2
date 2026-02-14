@@ -3,7 +3,7 @@
  */
 
 export interface ReadFileOptions {
-  onProgress?: (loaded: number, _total: number) => void
+  onProgress?: (loaded: number, total: number) => void
   onError?: (error: Error) => void
   abortSignal?: AbortSignal
 }
@@ -118,7 +118,7 @@ export async function readMultipleFiles(
     const readFn = asDataURL ? readFileAsDataURL : readFileAsArrayBuffer
     const result = await readFn(file, {
       ...options,
-      onProgress: (loaded, total) => {
+      onProgress: (loaded, _total) => {
         const currentLoaded = loadedSize + loaded
         onProgress?.(currentLoaded, totalSize)
       },

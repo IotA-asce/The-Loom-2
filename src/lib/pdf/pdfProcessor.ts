@@ -73,10 +73,10 @@ export async function renderPDFPage(
   canvas.width = viewport.width
   canvas.height = viewport.height
 
-  await page.render({
+  await (page.render({
     canvasContext: context,
     viewport,
-  }).promise
+  } as any).promise)
 
   const imageData = canvas.toDataURL('image/webp', 0.85)
 
