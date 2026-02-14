@@ -9,6 +9,7 @@ export interface ChapterSegmentationReviewProps {
   onConfirm: () => void
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const ChapterSegmentationReview: React.FC<
   ChapterSegmentationReviewProps
 > = ({ segments, pageThumbnails, _onAdjustBoundary, onConfirm }) => {
