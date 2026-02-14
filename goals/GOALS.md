@@ -73,12 +73,12 @@
 - [x] Create developer console (hidden feature)
 
 ### 1.6 Configuration UI
-- [ ] Create SettingsScreen component
-- [ ] Implement ProviderConfigModal
-- [ ] Create Toast notification system
-- [ ] Implement API key input with masking
-- [ ] Add test connection functionality
-- [ ] Implement theme toggle (manual only)
+- [x] Create SettingsScreen component
+- [x] Implement ProviderConfigModal
+- [x] Create Toast notification system
+- [x] Implement API key input with masking
+- [x] Add test connection functionality
+- [x] Implement theme toggle (manual only)
 
 ---
 
