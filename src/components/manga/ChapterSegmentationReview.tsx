@@ -11,7 +11,7 @@ export interface ChapterSegmentationReviewProps {
 
 export const ChapterSegmentationReview: React.FC<
   ChapterSegmentationReviewProps
-> = ({ segments, pageThumbnails, onAdjustBoundary, onConfirm }) => {
+> = ({ segments, pageThumbnails, _onAdjustBoundary, onConfirm }) => {
   return (
     <div className="segmentation-review">
       <h3 className="review-title">Review Chapter Segments</h3>
