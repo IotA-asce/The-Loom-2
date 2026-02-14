@@ -21,7 +21,7 @@
 - [x] Setup ESLint + Prettier configuration
 - [x] Configure lint-staged and husky pre-commit hooks
 - [x] Install core dependencies (Zustand, React Query, Dexie)
-- [ ] Verify dev server starts in < 2s
+- [x] Verify dev server starts in < 2s
 - [ ] Verify production build succeeds
 
 ### 1.2 State Management
