@@ -29,8 +29,8 @@
 - [x] Implement PreferencesStore (theme, default LLM, language)
 - [x] Implement ConfigStore (providers, activeProviderId)
 - [x] Implement UIStore (sidebar state, modal state)
-- [ ] Add Zustand persistence middleware
-- [ ] Add Redux DevTools compatibility
+- [x] Add Zustand persistence middleware
+- [x] Add Redux DevTools compatibility
 - [ ] Configure React Query client
 - [ ] Setup QueryClientProvider in app root
 - [ ] Implement encrypted storage for API keys (crypto-js)
