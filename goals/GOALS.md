@@ -59,8 +59,8 @@
 - [x] Implement AnchorEventRepository CRUD
 - [x] Implement BranchRepository CRUD
 - [x] Implement ChapterRepository CRUD
-- [ ] Create database migration system
-- [ ] Add data export/import functionality
+- [x] Create database migration system
+- [x] Add data export/import functionality
 
 ### 1.5 Error Handling & Logging
 - [x] Create AppError base class
