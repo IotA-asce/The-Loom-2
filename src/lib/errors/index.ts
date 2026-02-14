@@ -6,6 +6,7 @@
 
 // Base error
 export { AppError, type ErrorContext, type SerializedError, type ErrorSeverity } from './base-error';
+export { LogLevel, errorLogger, setLogLevel, getLogLevel, type LogEntry } from './logger';
 
 // Network errors
 export {
