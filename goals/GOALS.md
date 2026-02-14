@@ -130,15 +130,15 @@
 - [x] Options: Skip, Replace, Import as new
 
 ### 2.7 Auto Chapter Segmentation
-- [ ] Implement cover page detection
-- [ ] Detect chapter title placement
-- [ ] Analyze panel density
-- [ ] Detect distinctive art style
-- [ ] Identify bonus/omake pages
-- [ ] Implement page number OCR
-- [ ] Detect volume boundaries
-- [ ] Create segmentation review UI
-- [ ] Allow manual boundary adjustment
+- [x] Implement cover page detection
+- [x] Detect chapter title placement
+- [x] Analyze panel density
+- [x] Detect distinctive art style
+- [x] Identify bonus/omake pages
+- [x] Implement page number OCR
+- [x] Detect volume boundaries
+- [x] Create segmentation review UI
+- [x] Allow manual boundary adjustment
 
 ### 2.8 Storage Integration
 - [ ] Extend database schema for chapters
