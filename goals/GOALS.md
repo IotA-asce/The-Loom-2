@@ -124,10 +124,10 @@
 - [x] Support reverse order (right-to-left)
 
 ### 2.6 Duplicate Detection
-- [ ] Implement MD5/SHA-256 hashing
-- [ ] Check against existing manga
-- [ ] Show duplicate warning modal
-- [ ] Options: Skip, Replace, Import as new
+- [x] Implement MD5/SHA-256 hashing
+- [x] Check against existing manga
+- [x] Show duplicate warning modal
+- [x] Options: Skip, Replace, Import as new
 
 ### 2.7 Auto Chapter Segmentation
 - [ ] Implement cover page detection
