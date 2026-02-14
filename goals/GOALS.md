@@ -54,11 +54,11 @@
 - [x] Define Branch table schema
 - [x] Define Chapter table schema
 - [x] Add compound indexes for queries
-- [ ] Implement MangaRepository CRUD
-- [ ] Implement StorylineRepository CRUD
-- [ ] Implement AnchorEventRepository CRUD
-- [ ] Implement BranchRepository CRUD
-- [ ] Implement ChapterRepository CRUD
+- [x] Implement MangaRepository CRUD
+- [x] Implement StorylineRepository CRUD
+- [x] Implement AnchorEventRepository CRUD
+- [x] Implement BranchRepository CRUD
+- [x] Implement ChapterRepository CRUD
 - [ ] Create database migration system
 - [ ] Add data export/import functionality
 
