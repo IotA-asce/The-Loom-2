@@ -47,13 +47,13 @@
 - [x] Add automatic fallback on failure
 
 ### 1.4 Database Layer
-- [ ] Setup Dexie.js database
-- [ ] Define Manga table schema
-- [ ] Define Storyline table schema
-- [ ] Define AnchorEvent table schema
-- [ ] Define Branch table schema
-- [ ] Define Chapter table schema
-- [ ] Add compound indexes for queries
+- [x] Setup Dexie.js database
+- [x] Define Manga table schema
+- [x] Define Storyline table schema
+- [x] Define AnchorEvent table schema
+- [x] Define Branch table schema
+- [x] Define Chapter table schema
+- [x] Add compound indexes for queries
 - [ ] Implement MangaRepository CRUD
 - [ ] Implement StorylineRepository CRUD
 - [ ] Implement AnchorEventRepository CRUD
