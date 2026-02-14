@@ -85,7 +85,7 @@
 ## Component 2: Manga Ingestion Engine
 
 ### 2.1 Core Upload Infrastructure
-- [ ] Create file type detection utility
+- [x] Create file type detection utility
 - [ ] Implement drag-and-drop hook
 - [ ] Create file reader utility with progress
 - [ ] Support CBZ/ZIP format
