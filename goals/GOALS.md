@@ -17,7 +17,7 @@
 ### 1.1 Project Setup
 - [x] Initialize Vite + React + TypeScript project
 - [x] Configure path aliases (@/ for src)
-- [ ] Enable strict TypeScript mode
+- [x] Enable strict TypeScript mode
 - [ ] Setup ESLint + Prettier configuration
 - [ ] Configure lint-staged and husky pre-commit hooks
 - [ ] Install core dependencies (Zustand, React Query, Dexie)
