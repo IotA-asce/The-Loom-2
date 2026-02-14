@@ -31,7 +31,7 @@
 - [x] Implement UIStore (sidebar state, modal state)
 - [x] Add Zustand persistence middleware
 - [x] Add Redux DevTools compatibility
-- [ ] Configure React Query client
+- [x] Configure React Query client
 - [ ] Setup QueryClientProvider in app root
 - [ ] Implement encrypted storage for API keys (crypto-js)
 
