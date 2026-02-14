@@ -102,11 +102,11 @@
 - [x] Add corrupt archive detection
 
 ### 2.3 PDF Processing
-- [ ] Integrate pdf.js
-- [ ] Render PDF pages to canvas
-- [ ] Convert canvas to WebP/JPEG
-- [ ] Extract PDF metadata
-- [ ] Show per-page progress
+- [x] Integrate pdf.js
+- [x] Render PDF pages to canvas
+- [x] Convert canvas to WebP/JPEG
+- [x] Extract PDF metadata
+- [x] Show per-page progress
 
 ### 2.4 Image Processing
 - [ ] Implement natural sort algorithm
