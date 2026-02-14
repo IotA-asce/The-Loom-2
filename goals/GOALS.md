@@ -28,7 +28,7 @@
 - [x] Create Zustand store structure
 - [x] Implement PreferencesStore (theme, default LLM, language)
 - [x] Implement ConfigStore (providers, activeProviderId)
-- [ ] Implement UIStore (sidebar state, modal state)
+- [x] Implement UIStore (sidebar state, modal state)
 - [ ] Add Zustand persistence middleware
 - [ ] Add Redux DevTools compatibility
 - [ ] Configure React Query client
