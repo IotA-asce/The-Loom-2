@@ -87,7 +87,7 @@
 ### 2.1 Core Upload Infrastructure
 - [x] Create file type detection utility
 - [x] Implement drag-and-drop hook
-- [ ] Create file reader utility with progress
+- [x] Create file reader utility with progress
 - [ ] Support CBZ/ZIP format
 - [ ] Support CBR/RAR format
 - [ ] Support PDF format
