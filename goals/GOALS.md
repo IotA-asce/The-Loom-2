@@ -94,12 +94,12 @@
 - [x] Support individual images (PNG, JPG, WebP)
 
 ### 2.2 Archive Processing
-- [ ] Implement ZIP/CBZ extractor (JSZip)
-- [ ] Implement RAR/CBR extractor (unrar-js)
-- [ ] Create progress callback system
-- [ ] Handle nested folder structures
-- [ ] Implement memory-efficient streaming
-- [ ] Add corrupt archive detection
+- [x] Implement ZIP/CBZ extractor (JSZip)
+- [x] Implement RAR/CBR extractor (unrar-js)
+- [x] Create progress callback system
+- [x] Handle nested folder structures
+- [x] Implement memory-efficient streaming
+- [x] Add corrupt archive detection
 
 ### 2.3 PDF Processing
 - [ ] Integrate pdf.js
