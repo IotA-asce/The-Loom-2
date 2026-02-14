@@ -20,7 +20,7 @@
 - [x] Enable strict TypeScript mode
 - [x] Setup ESLint + Prettier configuration
 - [x] Configure lint-staged and husky pre-commit hooks
-- [ ] Install core dependencies (Zustand, React Query, Dexie)
+- [x] Install core dependencies (Zustand, React Query, Dexie)
 - [ ] Verify dev server starts in < 2s
 - [ ] Verify production build succeeds
 
