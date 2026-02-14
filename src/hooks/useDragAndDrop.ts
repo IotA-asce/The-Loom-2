@@ -34,7 +34,7 @@ export function useDragAndDrop(options: UseDragAndDropOptions) {
   )
 
   const handleDragEnter = useCallback(
-    (e: DragEvent) => {
+    (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault()
       e.stopPropagation()
       dragCounterRef.current += 1
@@ -49,7 +49,7 @@ export function useDragAndDrop(options: UseDragAndDropOptions) {
   )
 
   const handleDragLeave = useCallback(
-    (e: DragEvent) => {
+    (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault()
       e.stopPropagation()
       dragCounterRef.current -= 1
@@ -63,7 +63,7 @@ export function useDragAndDrop(options: UseDragAndDropOptions) {
     [onDragLeave]
   )
 
-  const handleDragOver = useCallback((e: DragEvent) => {
+  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
     e.stopPropagation()
     if (e.dataTransfer) {
@@ -72,7 +72,7 @@ export function useDragAndDrop(options: UseDragAndDropOptions) {
   }, [])
 
   const handleDrop = useCallback(
-    (e: DragEvent) => {
+    (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault()
       e.stopPropagation()
       dragCounterRef.current = 0

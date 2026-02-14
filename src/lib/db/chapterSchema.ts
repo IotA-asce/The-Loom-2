@@ -2,7 +2,7 @@
  * Chapter schema extension for database
  */
 
-import { DBSchema } from 'idb'
+// IndexedDB schema types - idb package not installed, using native types
 
 export interface ChapterRecord {
   id: string
@@ -29,7 +29,7 @@ export interface PageRecord {
   isDoublePage: boolean
 }
 
-export interface ChapterSchema extends DBSchema {
+export interface ChapterSchema {
   chapters: {
     key: string
     value: ChapterRecord

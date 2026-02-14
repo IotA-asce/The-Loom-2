@@ -1,3 +1,4 @@
+// @ts-ignore - unrar-js has no types
 import { unrar } from 'unrar-js'
 
 export interface ExtractRarOptions {

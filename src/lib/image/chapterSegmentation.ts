@@ -22,8 +22,8 @@ export interface SegmentationOptions {
  */
 export function detectCoverPage(
   pageIndex: number,
-  totalPages: number,
-  imageData?: ImageData
+  _totalPages: number,
+  _imageData?: ImageData
 ): boolean {
   // Cover is typically the first page
   if (pageIndex !== 0) return false
@@ -37,7 +37,7 @@ export function detectCoverPage(
 /**
  * Analyze page for chapter title indicators
  */
-export function analyzePageForTitle(imageData: ImageData): {
+export function analyzePageForTitle(_imageData: ImageData): {
   hasTitle: boolean
   confidence: number
 } {
@@ -53,7 +53,7 @@ export function analyzePageForTitle(imageData: ImageData): {
 /**
  * Analyze panel density (number of panels per page)
  */
-export function analyzePanelDensity(imageData: ImageData): number {
+export function analyzePanelDensity(_imageData: ImageData): number {
   // Placeholder for panel detection
   // Would use edge detection and rectangle analysis
 
@@ -64,8 +64,8 @@ export function analyzePanelDensity(imageData: ImageData): number {
  * Detect distinctive art style changes (new chapter indicators)
  */
 export function detectArtStyleChange(
-  currentPage: ImageData,
-  previousPage: ImageData
+  _currentPage: ImageData,
+  _previousPage: ImageData
 ): boolean {
   // Placeholder for style change detection
   // Would compare color histograms, line patterns, etc.
@@ -79,7 +79,7 @@ export function detectArtStyleChange(
 export function detectBonusPage(
   pageIndex: number,
   totalPages: number,
-  imageData: ImageData
+  _imageData: ImageData
 ): boolean {
   // Bonus pages are typically at the end
   if (pageIndex < totalPages - 10) return false
@@ -93,7 +93,7 @@ export function detectBonusPage(
 /**
  * Detect page number from image (OCR placeholder)
  */
-export function detectPageNumber(imageData: ImageData): number | null {
+export function detectPageNumber(_imageData: ImageData): number | null {
   // Placeholder for OCR-based page number detection
   // Would use Tesseract.js or similar
 
@@ -105,7 +105,7 @@ export function detectPageNumber(imageData: ImageData): number | null {
  */
 export function detectVolumeBoundary(
   chapters: ChapterSegment[],
-  currentChapter: ChapterSegment
+  _currentChapter: ChapterSegment
 ): boolean {
   // Volume boundaries often occur every 4-12 chapters
   // or after significant story arcs

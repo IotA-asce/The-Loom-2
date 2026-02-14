@@ -3,7 +3,7 @@
  */
 
 export interface ReadFileOptions {
-  onProgress?: (loaded: number, total: number) => void
+  onProgress?: (loaded: number, _total: number) => void
   onError?: (error: Error) => void
   abortSignal?: AbortSignal
 }

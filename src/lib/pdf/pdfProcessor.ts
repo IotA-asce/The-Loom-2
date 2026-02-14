@@ -41,7 +41,7 @@ export async function extractPDFMetadata(
   pdf: pdfjsLib.PDFDocumentProxy
 ): Promise<PDFMetadata> {
   const metadata = await pdf.getMetadata().catch(() => ({}))
-  const info = metadata.info || {}
+  const info = (metadata as any).info || {}
 
   return {
     title: info.Title,
