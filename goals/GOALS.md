@@ -27,7 +27,7 @@
 ### 1.2 State Management
 - [x] Create Zustand store structure
 - [x] Implement PreferencesStore (theme, default LLM, language)
-- [ ] Implement ConfigStore (providers, activeProviderId)
+- [x] Implement ConfigStore (providers, activeProviderId)
 - [ ] Implement UIStore (sidebar state, modal state)
 - [ ] Add Zustand persistence middleware
 - [ ] Add Redux DevTools compatibility
