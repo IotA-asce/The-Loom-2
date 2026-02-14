@@ -141,11 +141,11 @@
 - [x] Allow manual boundary adjustment
 
 ### 2.8 Storage Integration
-- [ ] Extend database schema for chapters
-- [ ] Save manga metadata
-- [ ] Store page references
-- [ ] Save thumbnails to IndexedDB
-- [ ] Handle partial processing recovery
+- [x] Extend database schema for chapters
+- [x] Save manga metadata
+- [x] Store page references
+- [x] Save thumbnails to IndexedDB
+- [x] Handle partial processing recovery
 
 ### 2.9 UI Components
 - [ ] Create DropZone component
