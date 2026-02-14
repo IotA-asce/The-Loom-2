@@ -9,10 +9,11 @@ export interface ChapterSegmentationReviewProps {
   onConfirm: () => void
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const ChapterSegmentationReview: React.FC<
   ChapterSegmentationReviewProps
 > = ({ segments, pageThumbnails, _onAdjustBoundary, onConfirm }) => {
+  // @ts-ignore - reserved for future use
+  void _onAdjustBoundary
   return (
     <div className="segmentation-review">
       <h3 className="review-title">Review Chapter Segments</h3>
