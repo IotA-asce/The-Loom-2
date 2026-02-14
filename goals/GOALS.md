@@ -32,7 +32,7 @@
 - [x] Add Zustand persistence middleware
 - [x] Add Redux DevTools compatibility
 - [x] Configure React Query client
-- [ ] Setup QueryClientProvider in app root
+- [x] Setup QueryClientProvider in app root
 - [ ] Implement encrypted storage for API keys (crypto-js)
 
 ### 1.3 LLM Provider Abstraction
