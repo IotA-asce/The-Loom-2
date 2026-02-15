@@ -432,7 +432,7 @@
 
 ### 7.1 Application Shell
 - [x] Implement top bar + sidebar navigation
-- [ ] Create manual-only theme toggle (light/dark)
+- [x] Create manual-only theme toggle (light/dark)
 - [ ] Build desktop-first responsive design
 - [ ] Implement subtle Apple-style animations (200-400ms)
 - [ ] Apply airy layout density (generous whitespace)

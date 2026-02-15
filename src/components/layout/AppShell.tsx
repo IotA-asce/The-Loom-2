@@ -9,6 +9,7 @@ import {
   Menu, X, ChevronLeft, ChevronRight 
 } from 'lucide-react'
 import { Button } from '@/components/ui'
+import { ThemeToggle } from './ThemeToggle'
 
 interface NavItem {
   id: string
@@ -192,6 +193,7 @@ export function AppShell({
           </div>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             {actions}
           </div>
         </header>
