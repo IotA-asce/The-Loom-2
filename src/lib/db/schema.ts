@@ -504,3 +504,40 @@ export interface Chapter {
   /** Last updated timestamp */
   updatedAt: number;
 }
+
+// ============================================================================
+// Anchor Analysis Cache Table
+// ============================================================================
+
+/**
+ * Cached anchor analysis results
+ */
+export interface AnchorAnalysisCache {
+  /** Unique identifier */
+  id?: string;
+  
+  /** Associated event ID */
+  eventId: string;
+  
+  /** Cached analysis data */
+  analysis: {
+    branchPotential: {
+      level: 'high' | 'moderate' | 'low';
+      points: string[];
+      alternatives: string[];
+      consequences: string[];
+      confidence: number;
+    };
+    emotionalImpact: {
+      primaryEmotions: string[];
+      emotionalStakes: string;
+      readerImpact: string;
+      relationshipEffects: string[];
+      confidence: number;
+    };
+    overallScore: number;
+  };
+  
+  /** Cache timestamp */
+  timestamp: number;
+}

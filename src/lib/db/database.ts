@@ -12,6 +12,7 @@ import type {
   AnchorEvent,
   Branch,
   Chapter,
+  AnchorAnalysisCache,
 } from './schema';
 import type { RawResponseEntry } from '@/lib/analysis/parser/storage';
 
@@ -36,6 +37,7 @@ export class LoomDatabase extends Dexie {
   branches!: Table<Branch, string>;
   chapters!: Table<Chapter, string>;
   rawResponses!: Table<RawResponseEntry, string>;
+  anchorEventCache!: Table<AnchorAnalysisCache, string>;
 
   constructor() {
     super(DATABASE_NAME);
@@ -122,6 +124,14 @@ export class LoomDatabase extends Dexie {
         [mangaId+stage],
         [mangaId+timestamp]
       `,
+      
+      // Anchor analysis cache
+      anchorEventCache: `
+        ++id,
+        eventId,
+        timestamp,
+        [eventId+timestamp]
+      `,
     });
   }
 
@@ -154,6 +164,14 @@ export class LoomDatabase extends Dexie {
     });
     this.anchorEvents.hook('updating', (modifications) => {
       return { ...modifications, updatedAt: Date.now() };
+    });
+    
+    // Anchor cache hooks
+    this.anchorEventCache.hook('creating', (_primKey, obj) => {
+      obj.timestamp = Date.now();
+    });
+    this.anchorEventCache.hook('updating', (modifications) => {
+      return { ...modifications, timestamp: Date.now() };
     });
 
     // Branch hooks

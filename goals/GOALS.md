@@ -279,10 +279,10 @@
 - [x] Apply diversity filters
 
 ### 4.4 Data Storage
-- [ ] Create AnchorEvent table
-- [ ] Create AlternativeOutcome table
-- [ ] Implement anchor repository
-- [ ] Add analysis caching
+- [x] Create AnchorEvent table (exists)
+- [x] Create AlternativeOutcome table (embedded in schema)
+- [x] Implement anchor repository
+- [x] Add analysis caching with 24hr TTL
 
 ### 4.5 UI Components
 - [ ] Create AnchorCard component
