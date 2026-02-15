@@ -1,0 +1,185 @@
+/**
+ * Airy Layout Density
+ * Generous whitespace for comfortable reading
+ */
+
+/* Section spacing */
+.section-spacing {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Content spacing */
+.content-spacing > * + * {
+  margin-top: 1.5rem;
+}
+
+.content-spacing-lg > * + * {
+  margin-top: 2rem;
+}
+
+.content-spacing-xl > * + * {
+  margin-top: 3rem;
+}
+
+/* Card airy padding */
+.card-airy {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .card-airy {
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-airy {
+    padding: 3rem;
+  }
+}
+
+/* List item spacing */
+.list-airy > * + * {
+  margin-top: 0.75rem;
+}
+
+.list-airy-lg > * + * {
+  margin-top: 1rem;
+}
+
+/* Grid gap airy */
+.grid-airy {
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-airy {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-airy {
+    gap: 2.5rem;
+  }
+}
+
+/* Stack airy */
+.stack-airy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stack-airy-lg {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.stack-airy-xl {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Form airy */
+.form-airy .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-airy .form-label {
+  margin-bottom: 0.75rem;
+}
+
+.form-airy .form-input {
+  padding: 0.875rem 1rem;
+}
+
+/* Table airy */
+.table-airy th,
+.table-airy td {
+  padding: 1rem 1.25rem;
+}
+
+/* Sidebar airy */
+.sidebar-airy {
+  padding: 1.5rem;
+}
+
+.sidebar-airy .nav-item {
+  padding: 0.875rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Header airy */
+.header-airy {
+  padding: 1.25rem 2rem;
+}
+
+/* Page airy */
+.page-airy {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .page-airy {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-airy {
+    padding: 4rem;
+  }
+}
+
+/* Typography airy */
+.typography-airy h1,
+.typography-airy h2,
+.typography-airy h3 {
+  margin-bottom: 1rem;
+}
+
+.typography-airy p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+/* Container airy */
+.container-airy {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-airy {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-airy {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

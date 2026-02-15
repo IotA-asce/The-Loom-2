@@ -5,6 +5,7 @@ import { getQueryClient } from '@/lib/query-client';
 import App from './App.tsx';
 import './index.css';
 import './styles/animations.css';
+import './styles/layout-density.css';
 
 // Initialize QueryClient
 const queryClient = getQueryClient();
