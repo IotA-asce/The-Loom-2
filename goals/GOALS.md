@@ -182,74 +182,74 @@
 - [x] Implement user customization interface
 
 ### 3.3 LLM Orchestrator
-- [ ] Create AnalysisService class
-- [ ] Implement batch processing logic
-- [ ] Create batch calculator per provider
-- [ ] Implement overlapping batches
-- [ ] Add progress tracking
-- [ ] Implement sequential processing
-- [ ] Add thorough mode (10-15 min)
-- [ ] Implement retry with exponential backoff (3x)
-- [ ] Add fallback provider switching
-- [ ] Implement detailed cost tracking
+- [x] Create AnalysisService class
+- [x] Implement batch processing logic
+- [x] Create batch calculator per provider
+- [x] Implement overlapping batches
+- [x] Add progress tracking
+- [x] Implement sequential processing
+- [x] Add thorough mode (10-15 min)
+- [x] Implement retry with exponential backoff (3x)
+- [x] Add fallback provider switching
+- [x] Implement detailed cost tracking
 
 ### 3.4 Response Parser
-- [ ] Implement JSON extraction
-- [ ] Create Zod schema validation
-- [ ] Handle malformed JSON with LLM repair
-- [ ] Implement strict validation
-- [ ] Add schema evolution support
-- [ ] Store raw responses for debugging
-- [ ] Implement backward-compatible migrations
+- [x] Implement JSON extraction
+- [x] Create Zod schema validation
+- [x] Handle malformed JSON with LLM repair
+- [x] Implement strict validation
+- [x] Add schema evolution support
+- [x] Store raw responses for debugging
+- [x] Implement backward-compatible migrations
 
 ### 3.5 Character Analyzer
-- [ ] Implement character extraction
-- [ ] Create descriptive ID system for unnamed characters
-- [ ] Build character deduplication (LLM-based)
-- [ ] Implement alias resolution
-- [ ] Create relationship mapping
-- [ ] Track character states across batches
-- [ ] Implement historical relationship tracking
-- [ ] Support dynamic character introduction
-- [ ] Calculate per-character confidence scores
+- [x] Implement character extraction
+- [x] Create descriptive ID system for unnamed characters
+- [x] Build character deduplication (LLM-based)
+- [x] Implement alias resolution
+- [x] Create relationship mapping
+- [x] Track character states across batches
+- [x] Implement historical relationship tracking
+- [x] Support dynamic character introduction
+- [x] Calculate per-character confidence scores
 
 ### 3.6 Timeline Constructor
-- [ ] Implement event extraction
-- [ ] Support both reading and chronological order
-- [ ] Add LLM-flagged flashback detection
-- [ ] Implement significance-based event filtering
-- [ ] Create multi-factor significance scoring
-- [ ] Build full causal dependency graph
-- [ ] Track timeline gaps with estimation
-- [ ] Cross-reference parallel events
+- [x] Implement event extraction
+- [x] Support both reading and chronological order
+- [x] Add LLM-flagged flashback detection
+- [x] Implement significance-based event filtering
+- [x] Create multi-factor significance scoring
+- [x] Build full causal dependency graph
+- [x] Track timeline gaps with estimation
+- [x] Cross-reference parallel events
 
 ### 3.7 Quality Assessor
-- [ ] Implement multi-factor confidence calibration
-- [ ] Create severity-based blocking system
-- [ ] Build impact-based issue classification
-- [ ] Implement guided intervention wizard
-- [ ] Add auto-retry for low confidence
-- [ ] Create user review triggers (< 0.5 confidence)
-- [ ] Build quality metrics dashboard
+- [x] Implement multi-factor confidence calibration
+- [x] Create severity-based blocking system
+- [x] Build impact-based issue classification
+- [x] Implement guided intervention wizard
+- [x] Add auto-retry for low confidence
+- [x] Create user review triggers (< 0.5 confidence)
+- [x] Build quality metrics dashboard
 
 ### 3.8 Analysis Merger
-- [ ] Implement character timeline merge
-- [ ] Create deduplication for overlapping batches
-- [ ] Build hybrid contradiction resolution (confidence + LLM)
-- [ ] Implement overlap merge with gap detection
-- [ ] Track relationship evolution across batches
-- [ ] Generate multiple output views (for Components 4-6)
-- [ ] Implement full audit provenance
+- [x] Implement character timeline merge
+- [x] Create deduplication for overlapping batches
+- [x] Build hybrid contradiction resolution (confidence + LLM)
+- [x] Implement overlap merge with gap detection
+- [x] Track relationship evolution across batches
+- [x] Generate multiple output views (for Components 4-6)
+- [x] Implement full audit provenance
 
 ### 3.9 UI Components
-- [ ] Create AnalysisButton component
-- [ ] Create AnalysisProgress component
-- [ ] Create StorylineSummary component
-- [ ] Create CharacterGrid component
-- [ ] Create CharacterDetailModal component
-- [ ] Create TimelineList component
-- [ ] Create TimelineEventCard component
-- [ ] Create AnalysisError component
+- [x] Create AnalysisButton component
+- [x] Create AnalysisProgress component
+- [x] Create StorylineSummary component
+- [x] Create CharacterGrid component
+- [x] Create CharacterDetailModal component
+- [x] Create TimelineList component
+- [x] Create TimelineEventCard component
+- [x] Create AnalysisError component
 
 ---
 
