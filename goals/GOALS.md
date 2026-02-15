@@ -442,7 +442,7 @@
 
 ### 7.2 Library Manager
 - [x] Support adaptive view (grid/list/compact)
-- [ ] Implement both + auto-organization (folders + tags + AI)
+- [x] Implement both + auto-organization (folders + tags + AI)
 - [ ] Add titles-only search (fast, fuzzy)
 - [ ] Nest generated stories under source manga
 - [ ] Implement priority quick actions
