@@ -322,12 +322,12 @@
 - [x] Project arcs for all affected characters
 
 ### 5.4 Consistency Validator
-- [ ] Implement context-aware strictness
-- [ ] Create tiered validation (core/secondary/minor traits)
-- [ ] Support user-controlled deviation levels
-- [ ] Distinguish hard vs. soft world rules
-- [ ] Implement suggest-fix workflow
-- [ ] Validate all 8 dimensions
+- [x] Implement context-aware strictness
+- [x] Create tiered validation (core/secondary/minor traits)
+- [x] Support user-controlled deviation levels
+- [x] Distinguish hard vs. soft world rules
+- [x] Implement suggest-fix workflow
+- [x] Validate all 8 dimensions
 
 ### 5.5 Branch Refiner
 - [ ] Implement user-triggered refinement
