@@ -496,20 +496,20 @@
 - [x] Ensure full accessibility support
 
 ### 7.7 Story Reader & Editor (112 hrs)
-- [ ] Implement vertical scroll reading mode (default)
-- [ ] Create chapter navigation (previous/next, dropdown, keyboard)
-- [ ] Build reading progress tracking (scroll position + time)
-- [ ] Implement branch switching panel with history
-- [ ] Create collapsible table of contents drawer
-- [ ] Add typography preferences (font, size, line spacing, margins)
-- [ ] Implement theme support (light/dark/sepia/custom)
-- [ ] Create manga-style RTL reading mode with spreads
-- [ ] Build focus mode (distraction-free reading)
-- [ ] Add bookmarking system with quick access
-- [ ] Implement reading statistics dashboard
-- [ ] Create AI assistant panel for editing suggestions
-- [ ] Add keyboard shortcuts (navigation, bookmarks, settings)
-- [ ] Ensure full accessibility (screen reader, focus management)
+- [x] Implement vertical scroll reading mode (default)
+- [x] Create chapter navigation (previous/next, dropdown, keyboard)
+- [x] Build reading progress tracking (scroll position + time)
+- [x] Implement branch switching panel with history
+- [x] Create collapsible table of contents drawer
+- [x] Add typography preferences (font, size, line spacing, margins)
+- [x] Implement theme support (light/dark/sepia/custom)
+- [x] Create manga-style RTL reading mode with spreads
+- [x] Build focus mode (distraction-free reading)
+- [x] Add bookmarking system with quick access
+- [x] Implement reading statistics dashboard
+- [x] Create AI assistant panel for editing suggestions
+- [x] Add keyboard shortcuts (navigation, bookmarks, settings)
+- [x] Ensure full accessibility (screen reader, focus management)
 
 ### 7.8 Settings Panel (98 hrs)
 - [ ] Create category sidebar navigation (General, LLM, Analysis, Appearance, Data, Advanced)
