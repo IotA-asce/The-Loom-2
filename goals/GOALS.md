@@ -473,12 +473,12 @@
 - [x] Ensure full accessibility (screen reader, keyboard navigation, ARIA labels)
 
 ### 7.5 Anchor Explorer (100 hrs)
-- [ ] Display anchor cards/list (TBD based on interrogation)
-- [ ] Show anchor detail view (TBD based on interrogation)
-- [ ] Support selection workflow (TBD based on interrogation)
-- [ ] Display confidence and impact
-- [ ] Support manual anchor creation (TBD based on interrogation)
-- [ ] Allow user rating and notes
+- [x] Display anchor cards/list (TBD based on interrogation)
+- [x] Show anchor detail view (TBD based on interrogation)
+- [x] Support selection workflow (TBD based on interrogation)
+- [x] Display confidence and impact
+- [x] Support manual anchor creation (TBD based on interrogation)
+- [x] Allow user rating and notes
 
 ### 7.6 Branch Studio (106 hrs)
 - [ ] Create comparison grid view (2-3 columns side-by-side)

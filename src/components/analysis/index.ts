@@ -11,3 +11,11 @@ export {
   type Theme,
   type Relationship,
 } from './AnalysisViewer'
+
+export {
+  AnchorExplorer,
+  AnchorWorkflow,
+  ManualAnchorForm,
+  type AnchorType,
+  type StoryAnchor,
+} from './AnchorExplorer'
