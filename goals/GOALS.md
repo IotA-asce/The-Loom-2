@@ -445,7 +445,7 @@
 - [x] Implement both + auto-organization (folders + tags + AI)
 - [x] Add titles-only search (fast, fuzzy)
 - [x] Nest generated stories under source manga
-- [ ] Implement priority quick actions
+- [x] Implement priority quick actions
 - [ ] Create tutorial empty state
 
 ### 7.3 Upload Flow
