@@ -297,12 +297,12 @@
 ## Component 5: Branch Generator
 
 ### 5.1 Context Assembler
-- [ ] Extract anchor event details
-- [ ] Compile full character states (all context required)
-- [ ] Assemble world state snapshot
-- [ ] Gather narrative style profile
-- [ ] Implement adaptive context selection per anchor type
-- [ ] Package context in timeline narrative format
+- [x] Extract anchor event details
+- [x] Compile full character states (all context required)
+- [x] Assemble world state snapshot
+- [x] Gather narrative style profile
+- [x] Implement adaptive context selection per anchor type
+- [x] Package context in timeline narrative format
 
 ### 5.2 Premise Generator
 - [ ] Transform alternatives into premises
