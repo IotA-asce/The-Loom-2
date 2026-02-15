@@ -73,11 +73,11 @@ export function createRetainedVersion(
     description?: string
   } = {}
 ): RetainedVersion {
-  const versionNumber = chapter.version || 1
+  const versionNumber = (chapter as Chapter & { version?: number }).version ?? 1
   
   return {
-    id: `ver-${chapter.id}-${versionNumber}-${Date.now()}`,
-    chapterId: chapter.id,
+    id: `ver-${chapter.id ?? 'unknown'}-${versionNumber}-${Date.now()}`,
+    chapterId: chapter.id ?? '',
     versionNumber,
     content,
     metadata: {

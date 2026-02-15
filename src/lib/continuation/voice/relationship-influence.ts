@@ -2,7 +2,12 @@
  * Character relationship influence on speech
  */
 
-import type { CharacterRelationship } from '@/lib/branches/context/relationships'
+export interface CharacterRelationship {
+  targetCharacterId: string
+  type: string
+  affinity: number // -100 to 100
+  sharedEvents: string[]
+}
 
 export interface RelationshipContext {
   targetCharacterId: string

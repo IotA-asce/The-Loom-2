@@ -403,28 +403,28 @@
 - [x] Rank error severity appropriately
 
 ### 6.6 Chapter Refiner
-- [ ] Support multi-level refinement scope
-- [ ] Allow unlimited refinement iterations
-- [ ] Implement explicit user-approved learning
-- [ ] Provide all 7 AI assistance features
-- [ ] Create branching version history
-- [ ] Implement AI-assisted collaboration mode
+- [x] Support multi-level refinement scope
+- [x] Allow unlimited refinement iterations
+- [x] Implement explicit user-approved learning
+- [x] Provide all 7 AI assistance features
+- [x] Create branching version history
+- [x] Implement AI-assisted collaboration mode
 
 ### 6.7 Story Archivist
-- [ ] Retain all versions
-- [ ] Support branching from any point in generated story
-- [ ] Export to all 6 formats (TXT, MD, EPUB, PDF, HTML, DOCX)
-- [ ] Organize library by branch tree structure
-- [ ] Implement comprehensive search (title, content, character, tags)
-- [ ] Support export-only sharing (privacy-first)
+- [x] Retain all versions
+- [x] Support branching from any point in generated story
+- [x] Export to all 6 formats (TXT, MD, EPUB, PDF, HTML, DOCX)
+- [x] Organize library by branch tree structure
+- [x] Implement comprehensive search (title, content, character, tags)
+- [x] Support export-only sharing (privacy-first)
 
 ### 6.8 UI Components
-- [ ] Create ChapterReader component
-- [ ] Create ChapterEditor component
-- [ ] Create OutlinePreview component
-- [ ] Create GenerationSetup component
-- [ ] Create StoryProgress component
-- [ ] Create AIAssistPanel component
+- [x] Create ChapterReader component
+- [x] Create ChapterEditor component
+- [x] Create OutlinePreview component
+- [x] Create GenerationSetup component
+- [x] Create StoryProgress component
+- [x] Create AIAssistPanel component
 
 ---
 

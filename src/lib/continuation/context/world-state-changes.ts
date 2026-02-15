@@ -210,7 +210,7 @@ function applyRelationshipChange(state: WorldState, _change: WorldStateChange): 
 /**
  * Get recent world state changes
  */
-export function getRecentChanges(
+export function getRecentWorldChanges(
   manager: WorldStateManager,
   count: number = 5
 ): WorldStateChange[] {
@@ -252,7 +252,7 @@ export function formatWorldStateForContext(
     parts.push('')
   }
   
-  const recentChanges = getRecentChanges(manager, 3)
+  const recentChanges = getRecentWorldChanges(manager, 3)
   if (recentChanges.length > 0) {
     parts.push('### Recent Changes')
     for (const change of recentChanges) {
