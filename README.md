@@ -71,7 +71,7 @@ An intelligent manga branching narrative platform powered by LLM agents. Upload 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/the-loom-2.git
+git clone https://github.com/username/the-loom-2.git
 cd the-loom-2
 
 # Install dependencies
@@ -87,16 +87,25 @@ npm run dev
 
 ### Configuration
 
-Create a `.env.local` file:
+1. Copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
 
-```env
-# Required: At least one LLM provider
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
+2. Edit `.env.local` and add your API key(s):
+   ```env
+   # Required: Google Gemini API key
+   VITE_GEMINI_API_KEY=your_gemini_api_key_here
+   
+   # Optional: Fallback providers
+   VITE_OPENAI_API_KEY=your_openai_key_here
+   VITE_ANTHROPIC_API_KEY=your_anthropic_key_here
+   ```
 
-# Optional: Fallback providers
-VITE_OPENAI_API_KEY=your_openai_key_here
-VITE_ANTHROPIC_API_KEY=your_anthropic_key_here
-```
+3. Get your API keys:
+   - **Gemini**: https://ai.google.dev/gemini-api/docs/api-key
+   - **OpenAI**: https://platform.openai.com/api-keys
+   - **Anthropic**: https://console.anthropic.com/settings/keys
 
 ---
 
@@ -253,14 +262,20 @@ the-loom-2/
 # Start dev server with hot reload
 npm run dev
 
-# Type check
-npm run typecheck
-
-# Build for production
+# Build for production (includes TypeScript check)
 npm run build
 
-# Preview production build
+# Preview production build locally
 npm run preview
+
+# Run linter
+npm run lint
+
+# Fix linting issues
+npm run lint:fix
+
+# Format code with Prettier
+npm run format
 ```
 
 ---
@@ -269,7 +284,7 @@ npm run preview
 
 Contributions are welcome! Please follow these steps:
 
-1. Fork the repository
+1. Fork the repository (`https://github.com/username/the-loom-2/fork`)
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
@@ -299,9 +314,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- [Documentation](https://github.com/yourusername/the-loom-2/wiki)
-- [Issues](https://github.com/yourusername/the-loom-2/issues)
-- [Changelog](CHANGELOG.md)
+- [Documentation](./goals/GOALS.md)
+- [Issues](../../issues)
+- [Changelog](./CHANGELOG.md) (create this file as you release versions)
 
 ---
 
