@@ -459,18 +459,18 @@
 - [x] Support batch upload
 
 ### 7.4 Analysis Viewer (96 hrs)
-- [ ] Create tabbed interface with 5 views (Summary, Timeline, Characters, Themes, Relationships)
-- [ ] Implement horizontal scrollable timeline with zoom/pan
-- [ ] Build character card grid with expandable detail view
-- [ ] Create theme visualization with keyword highlighting
-- [ ] Implement relationship graph visualization
-- [ ] Add real-time streaming updates during analysis
-- [ ] Support user notes and ratings on analysis elements
-- [ ] Implement export (PDF, JSON, Print-friendly)
-- [ ] Add timeline zoom and navigation controls
-- [ ] Implement keyboard shortcuts (arrow navigation, zoom, tab switching)
-- [ ] Add virtualized rendering for large datasets
-- [ ] Ensure full accessibility (screen reader, keyboard navigation, ARIA labels)
+- [x] Create tabbed interface with 5 views (Summary, Timeline, Characters, Themes, Relationships)
+- [x] Implement horizontal scrollable timeline with zoom/pan
+- [x] Build character card grid with expandable detail view
+- [x] Create theme visualization with keyword highlighting
+- [x] Implement relationship graph visualization
+- [x] Add real-time streaming updates during analysis
+- [x] Support user notes and ratings on analysis elements
+- [x] Implement export (PDF, JSON, Print-friendly)
+- [x] Add timeline zoom and navigation controls
+- [x] Implement keyboard shortcuts (arrow navigation, zoom, tab switching)
+- [x] Add virtualized rendering for large datasets
+- [x] Ensure full accessibility (screen reader, keyboard navigation, ARIA labels)
 
 ### 7.5 Anchor Explorer (100 hrs)
 - [ ] Display anchor cards/list (TBD based on interrogation)
