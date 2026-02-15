@@ -161,13 +161,13 @@
 
 ### 3.1 Image Preprocessor
 - [x] Create image quality assessment
-- [ ] Implement format optimization (WebP)
-- [ ] Calculate optimal batch sizes
-- [ ] Handle double-page spreads
-- [ ] Implement user-configurable preprocessing
-- [ ] Add optional AI upscaling toggle
-- [ ] Implement margin cropping
-- [ ] Add auto-rotate functionality
+- [x] Implement format optimization (WebP)
+- [x] Calculate optimal batch sizes
+- [x] Handle double-page spreads
+- [x] Implement user-configurable preprocessing
+- [x] Add optional AI upscaling toggle
+- [x] Implement margin cropping
+- [x] Add auto-rotate functionality
 
 ### 3.2 Prompt Engine
 - [ ] Create multi-stage prompt architecture
