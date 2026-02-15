@@ -163,7 +163,7 @@ function filterByThemePreferences(
     if (hasAvoidedTheme) return false
     
     // If preferred themes specified, check for match
-    if (preferences.preferredThemes.length > 0) {
+    if (preferences && preferences.preferredThemes.length > 0) {
       const hasPreferredTheme = preferences.preferredThemes.some(preferred =>
         premise.themes.some(t => t.toLowerCase().includes(preferred.toLowerCase()))
       )
@@ -203,7 +203,7 @@ function calculateToneMatch(
     mixed: ['conflict', 'transformation', 'mystery', 'fate'],
   }
   
-  const keywords = moodKeywords[preferences.mood] || []
+  const keywords = moodKeywords[preferences?.mood || 'mixed'] || []
   const matchingThemes = themes.filter(t => 
     keywords.some(kw => t.includes(kw))
   )
@@ -216,7 +216,7 @@ function calculateToneMatch(
     intense: ['death', 'war', 'betrayal', 'sacrifice', 'love'],
   }
   
-  const intensityKeywords = intensityIndicators[preferences.intensity] || []
+  const intensityKeywords = intensityIndicators[preferences?.intensity || 'moderate'] || []
   const intensityMatch = themes.filter(t =>
     intensityKeywords.some(kw => t.includes(kw))
   )

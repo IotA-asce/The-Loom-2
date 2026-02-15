@@ -96,8 +96,8 @@ export function assembleWorldState(
     
     themes: themes.map(t => ({
       name: t.name,
-      currentExpression: `Exploring ${t.name} through ${t.relatedEvents.length} events`,
-      potentialDevelopments: t.developments,
+      currentExpression: `Exploring ${t.name}`,
+      potentialDevelopments: [],
     })),
     
     plotThreads: extractPlotThreads(pastEvents),

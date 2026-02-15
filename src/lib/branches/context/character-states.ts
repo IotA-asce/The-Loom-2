@@ -3,7 +3,14 @@
  */
 
 import type { ParsedCharacter } from '@/lib/analysis/parser/validation'
-import type { TimelineRelationship } from '@/lib/analysis/timeline/causal'
+// Define relationship type locally since it may not be exported
+interface TimelineRelationship {
+  from: string
+  to: string
+  type: string
+  dynamic: string
+  history: string
+}
 
 export interface CharacterState {
   id: string
