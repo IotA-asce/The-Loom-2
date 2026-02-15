@@ -352,11 +352,11 @@
 - [x] Implement branch versioning
 
 ### 5.8 UI Components
-- [ ] Create BranchCard component
-- [ ] Create BranchList component
-- [ ] Create BranchComparisonView component
-- [ ] Create PremiseEditor component
-- [ ] Create BranchDetailModal component
+- [x] Create BranchCard component
+- [x] Create BranchList component
+- [x] Create BranchComparisonView component
+- [x] Create PremiseEditor component
+- [x] Create BranchDetailModal component
 
 ---
 
