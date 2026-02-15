@@ -285,10 +285,10 @@
 - [x] Add analysis caching with 24hr TTL
 
 ### 4.5 UI Components
-- [ ] Create AnchorCard component
-- [ ] Create AnchorList component
-- [ ] Create AnchorDetailModal component
-- [ ] Create ManualAnchorForm component
+- [x] Create AnchorCard component
+- [x] Create AnchorList component
+- [x] Create AnchorDetailModal component
+- [x] Create ManualAnchorForm component
 - [ ] Create FilterModal component
 - [ ] Create DetectionProgress component
 
