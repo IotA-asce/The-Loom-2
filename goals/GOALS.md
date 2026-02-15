@@ -170,16 +170,16 @@
 - [x] Add auto-rotate functionality
 
 ### 3.2 Prompt Engine
-- [ ] Create multi-stage prompt architecture
-- [ ] Build Visual Overview prompt
-- [ ] Build Character Discovery prompt
-- [ ] Build Timeline Extraction prompt
-- [ ] Build Relationship Mapping prompt
-- [ ] Build Theme Synthesis prompt
-- [ ] Implement genre-specific prompt variants
-- [ ] Add prompt versioning system
-- [ ] Create A/B testing framework
-- [ ] Implement user customization interface
+- [x] Create multi-stage prompt architecture
+- [x] Build Visual Overview prompt
+- [x] Build Character Discovery prompt
+- [x] Build Timeline Extraction prompt
+- [x] Build Relationship Mapping prompt
+- [x] Build Theme Synthesis prompt
+- [x] Implement genre-specific prompt variants
+- [x] Add prompt versioning system
+- [x] Create A/B testing framework
+- [x] Implement user customization interface
 
 ### 3.3 LLM Orchestrator
 - [ ] Create AnalysisService class
