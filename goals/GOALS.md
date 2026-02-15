@@ -289,7 +289,7 @@
 - [x] Create AnchorList component
 - [x] Create AnchorDetailModal component
 - [x] Create ManualAnchorForm component
-- [ ] Create FilterModal component
+- [x] Create FilterModal component
 - [x] Create DetectionProgress component
 
 ---
@@ -598,14 +598,14 @@
 | Component 1: Core Infrastructure | 45 | 45 |
 | Component 2: Manga Ingestion | 45 | 45 |
 | Component 3: Storyline Analyzer | 65 | 65 |
-| Component 4: Anchor Detector | 22 | 21 |
+| Component 4: Anchor Detector | 22 | 22 |
 | Component 5: Branch Generator | 38 | 38 |
 | Component 6: Story Continuation | 50 | 50 |
 | Component 7: React UI | 98 | 98 |
 | Cross-Cutting | 20 | 0 |
-| **Total** | **383** | **362** |
+| **Total** | **383** | **363** |
 
 ---
 
 *Last Updated: 2026-02-15*
-*Status: Implementation Complete — 362/383 tasks (94.5%) — Only FilterModal and Cross-Cutting concerns remaining*
+*Status: Implementation Complete — 363/383 tasks (94.8%) — Core components complete, Cross-Cutting concerns remaining*
