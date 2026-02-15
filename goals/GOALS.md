@@ -330,12 +330,12 @@
 - [x] Validate all 8 dimensions
 
 ### 5.5 Branch Refiner
-- [ ] Implement user-triggered refinement
-- [ ] Support user-decided iteration count (1-5)
-- [ ] Create 8-priority refinement areas
-- [ ] Implement critique-based refinement
-- [ ] Support instruction + conversation feedback
-- [ ] Stop on user satisfaction
+- [x] Implement user-triggered refinement
+- [x] Support user-decided iteration count (1-5)
+- [x] Create 8-priority refinement areas
+- [x] Implement critique-based refinement
+- [x] Support instruction + conversation feedback
+- [x] Stop on user satisfaction
 
 ### 5.6 Branch Comparator
 - [ ] Implement 8-dimension comparison
