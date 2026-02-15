@@ -451,12 +451,12 @@
 ### 7.3 Upload Flow
 - [x] Create modal upload experience
 - [x] Implement drag-and-drop with visual feedback
-- [ ] Support optional chapter segmentation review
-- [ ] Build queue display with polling progressbar
-- [ ] Handle errors inline
-- [ ] Show comprehensive progress (percentage + stages + time)
-- [ ] Display success with next step suggestions
-- [ ] Support batch upload
+- [x] Support optional chapter segmentation review
+- [x] Build queue display with polling progressbar
+- [x] Handle errors inline
+- [x] Show comprehensive progress (percentage + stages + time)
+- [x] Display success with next step suggestions
+- [x] Support batch upload
 
 ### 7.4 Analysis Viewer (96 hrs)
 - [ ] Create tabbed interface with 5 views (Summary, Timeline, Characters, Themes, Relationships)

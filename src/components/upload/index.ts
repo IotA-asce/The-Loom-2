@@ -13,3 +13,16 @@ export {
   DragDropProvider,
   useGlobalDragDrop,
 } from './DragDropZone'
+
+export {
+  UploadQueue,
+  UploadStatusBadge,
+  useUploadQueue,
+  type QueueItem,
+} from './UploadQueue'
+
+export {
+  ChapterSegmentationReview,
+  ChapterPreview,
+  type DetectedChapter,
+} from './ChapterSegmentation'
