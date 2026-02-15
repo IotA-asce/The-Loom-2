@@ -423,3 +423,8 @@ export function TooltipContent({ children }: TooltipContentProps) {
     </div>
   );
 }
+
+// ============================================================================
+// Animated
+// ============================================================================
+export { Animated, StaggerContainer, HoverLift } from './Animated';

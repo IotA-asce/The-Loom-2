@@ -4,6 +4,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { getQueryClient } from '@/lib/query-client';
 import App from './App.tsx';
 import './index.css';
+import './styles/animations.css';
 
 // Initialize QueryClient
 const queryClient = getQueryClient();

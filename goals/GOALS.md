@@ -434,7 +434,7 @@
 - [x] Implement top bar + sidebar navigation
 - [x] Create manual-only theme toggle (light/dark)
 - [x] Build desktop-first responsive design
-- [ ] Implement subtle Apple-style animations (200-400ms)
+- [x] Implement subtle Apple-style animations (200-400ms)
 - [ ] Apply airy layout density (generous whitespace)
 - [ ] Place primary actions contextually
 - [ ] Implement keyboard shortcuts
