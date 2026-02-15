@@ -22,3 +22,11 @@ export {
   type LibraryTag,
   type LibraryItem,
 } from './LibraryOrganization'
+
+export {
+  LibrarySearch,
+  LibrarySearchInput,
+  SearchResults,
+  useLibrarySearch,
+  type FuzzyMatch,
+} from './LibrarySearch'
