@@ -346,10 +346,10 @@
 - [x] Allow unlimited branch comparison
 
 ### 5.7 Data Storage
-- [ ] Create Branch table
-- [ ] Store branch premises and trajectories
-- [ ] Save character state snapshots
-- [ ] Implement branch versioning
+- [x] Create Branch table (exists)
+- [x] Store branch premises and trajectories
+- [x] Save character state snapshots
+- [x] Implement branch versioning
 
 ### 5.8 UI Components
 - [ ] Create BranchCard component
