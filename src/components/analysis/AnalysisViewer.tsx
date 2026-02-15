@@ -5,7 +5,7 @@
 
 import { useState } from 'react'
 import { 
-  FileText, Clock, Users, Palette, GitNetwork,
+  FileText, Clock, Users, Palette, Network,
   ZoomIn, ZoomOut, ChevronLeft, ChevronRight,
   Download, Printer, FileJson, FileCode
 } from 'lucide-react'
@@ -89,7 +89,7 @@ export function AnalysisViewer({ data, className }: AnalysisViewerProps) {
     { id: 'timeline', label: 'Timeline', icon: <Clock className="h-4 w-4" /> },
     { id: 'characters', label: 'Characters', icon: <Users className="h-4 w-4" /> },
     { id: 'themes', label: 'Themes', icon: <Palette className="h-4 w-4" /> },
-    { id: 'relationships', label: 'Relationships', icon: <GitNetwork className="h-4 w-4" /> },
+    { id: 'relationships', label: 'Relationships', icon: <Network className="h-4 w-4" /> },
   ]
 
   return (

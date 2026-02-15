@@ -17,7 +17,7 @@ interface SearchItem {
   title: string
 }
 
-interface FuzzyMatch {
+export interface FuzzyMatch {
   item: SearchItem
   score: number
   matches: Array<{ start: number; end: number }>

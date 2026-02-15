@@ -207,7 +207,7 @@ export function DragDropProvider({ onFilesDrop, children }: DragDropProviderProp
   const [isDragging, setIsDragging] = useState(false)
   const dragCounter = useRef(0)
 
-  const handleDragEnter = useCallback((e: DragEvent) => {
+  const handleDragEnter = useCallback((e: React.DragEvent) => {
     e.preventDefault()
     dragCounter.current++
     
@@ -216,7 +216,7 @@ export function DragDropProvider({ onFilesDrop, children }: DragDropProviderProp
     }
   }, [])
 
-  const handleDragLeave = useCallback((e: DragEvent) => {
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
     e.preventDefault()
     dragCounter.current--
     
@@ -225,11 +225,11 @@ export function DragDropProvider({ onFilesDrop, children }: DragDropProviderProp
     }
   }, [])
 
-  const handleDragOver = useCallback((e: DragEvent) => {
+  const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault()
   }, [])
 
-  const handleDrop = useCallback((e: DragEvent) => {
+  const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault()
     dragCounter.current = 0
     setIsDragging(false)

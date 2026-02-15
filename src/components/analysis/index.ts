@@ -15,7 +15,6 @@ export {
 export {
   AnchorExplorer,
   AnchorWorkflow,
-  ManualAnchorForm,
   type AnchorType,
   type StoryAnchor,
 } from './AnchorExplorer'

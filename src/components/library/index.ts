@@ -20,7 +20,7 @@ export {
   useLibraryOrganization,
   type LibraryFolder,
   type LibraryTag,
-  type LibraryItem,
+  type LibraryItem as OrgLibraryItem,
 } from './LibraryOrganization'
 
 export {

@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils'
 // Tutorial Step
 // ============================================================================
 
-interface TutorialStep {
+export interface TutorialStep {
   id: string
   title: string
   description: string

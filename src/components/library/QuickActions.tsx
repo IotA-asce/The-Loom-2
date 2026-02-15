@@ -97,7 +97,7 @@ interface QuickActionsMenuProps {
   className?: string
 }
 
-function QuickActionsMenu({ actions, className }: QuickActionsMenuProps) {
+export function QuickActionsMenu({ actions, className }: QuickActionsMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -176,37 +176,37 @@ export function MangaQuickActions({
   onDelete,
   className,
 }: MangaQuickActionsProps) {
-  const actions: QuickAction[] = [
+  const actions = [
     {
-      id: 'read',
+      id: 'read' as const,
       label: 'Read',
       icon: <BookOpen className="h-4 w-4" />,
       onClick: onRead || (() => {}),
-      priority: 'primary',
+      priority: 'primary' as const,
     },
     {
-      id: 'analyze',
+      id: 'analyze' as const,
       label: 'Analyze',
       icon: <Sparkles className="h-4 w-4" />,
       onClick: onAnalyze || (() => {}),
-      priority: 'secondary',
+      priority: 'secondary' as const,
     },
     {
-      id: 'branch',
+      id: 'branch' as const,
       label: 'New Branch',
       icon: <GitBranch className="h-4 w-4" />,
       onClick: onBranch || (() => {}),
-      priority: 'secondary',
+      priority: 'secondary' as const,
     },
     {
-      id: 'delete',
+      id: 'delete' as const,
       label: 'Delete',
       icon: <Trash2 className="h-4 w-4" />,
       onClick: onDelete || (() => {}),
-      priority: 'menu',
-      variant: 'destructive',
+      priority: 'menu' as const,
+      variant: 'destructive' as const,
     },
-  ].filter(a => a.onClick !== undefined)
+  ].filter(a => a.onClick !== undefined) satisfies QuickAction[]
 
   return <QuickActionsBar actions={actions} className={className} />
 }
@@ -232,58 +232,58 @@ export function StoryQuickActions({
   onDelete,
   className,
 }: StoryQuickActionsProps) {
-  const actions: QuickAction[] = [
+  const actions = [
     {
-      id: 'continue',
+      id: 'continue' as const,
       label: 'Continue',
       icon: <Play className="h-4 w-4" />,
       onClick: onContinue || (() => {}),
-      priority: 'primary',
+      priority: 'primary' as const,
     },
     {
-      id: 'edit',
+      id: 'edit' as const,
       label: 'Edit',
       icon: <Edit className="h-4 w-4" />,
       onClick: onEdit || (() => {}),
-      priority: 'secondary',
+      priority: 'secondary' as const,
     },
     {
-      id: 'export',
+      id: 'export' as const,
       label: 'Export',
       icon: <Download className="h-4 w-4" />,
       onClick: onExport || (() => {}),
-      priority: 'menu',
+      priority: 'menu' as const,
     },
     {
-      id: 'share',
+      id: 'share' as const,
       label: 'Share',
       icon: <Share2 className="h-4 w-4" />,
       onClick: onShare || (() => {}),
-      priority: 'menu',
+      priority: 'menu' as const,
     },
     {
-      id: 'duplicate',
+      id: 'duplicate' as const,
       label: 'Duplicate',
       icon: <Copy className="h-4 w-4" />,
       onClick: onDuplicate || (() => {}),
-      priority: 'menu',
+      priority: 'menu' as const,
     },
     {
-      id: 'archive',
+      id: 'archive' as const,
       label: 'Archive',
       icon: <Archive className="h-4 w-4" />,
       onClick: onArchive || (() => {}),
-      priority: 'menu',
+      priority: 'menu' as const,
     },
     {
-      id: 'delete',
+      id: 'delete' as const,
       label: 'Delete',
       icon: <Trash2 className="h-4 w-4" />,
       onClick: onDelete || (() => {}),
-      priority: 'menu',
-      variant: 'destructive',
+      priority: 'menu' as const,
+      variant: 'destructive' as const,
     },
-  ].filter(a => a.onClick !== undefined)
+  ].filter(a => a.onClick !== undefined) satisfies QuickAction[]
 
   return <QuickActionsBar actions={actions} className={className} />
 }
