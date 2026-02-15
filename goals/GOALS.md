@@ -446,7 +446,7 @@
 - [x] Add titles-only search (fast, fuzzy)
 - [x] Nest generated stories under source manga
 - [x] Implement priority quick actions
-- [ ] Create tutorial empty state
+- [x] Create tutorial empty state
 
 ### 7.3 Upload Flow
 - [ ] Create modal upload experience
