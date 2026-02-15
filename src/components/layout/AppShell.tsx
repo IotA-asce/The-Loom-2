@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui'
 import { ThemeToggle } from './ThemeToggle'
+import { KeyboardShortcutsHelp } from './KeyboardShortcutsHelp'
 
 interface NavItem {
   id: string
@@ -193,6 +194,7 @@ export function AppShell({
           </div>
 
           <div className="flex items-center gap-2">
+            <KeyboardShortcutsHelp />
             <ThemeToggle />
             {actions}
           </div>

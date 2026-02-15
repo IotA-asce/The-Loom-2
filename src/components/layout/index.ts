@@ -18,3 +18,4 @@ export {
   Toolbar,
   ActionGroup
 } from './ContextualActions'
+export { KeyboardShortcutsHelp, useShortcutGroups } from './KeyboardShortcutsHelp'
