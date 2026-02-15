@@ -387,20 +387,20 @@
 - [x] Support rich descriptions (user adjustable)
 
 ### 6.4 Voice Synthesizer
-- [ ] Implement hybrid voice capture (examples + rules + profile)
-- [ ] Support reactive voice evolution
-- [ ] Allow user-defined voices for minor characters
-- [ ] Implement user-guided differentiation for similar voices
-- [ ] Train narrative voice on original prose samples
-- [ ] Match original manga internal monologue style
+- [x] Implement hybrid voice capture (examples + rules + profile)
+- [x] Support reactive voice evolution
+- [x] Allow user-defined voices for minor characters
+- [x] Implement user-guided differentiation for similar voices
+- [x] Train narrative voice on original prose samples
+- [x] Match original manga internal monologue style
 
 ### 6.5 Continuity Guardian
-- [ ] Implement continuous background validation
-- [ ] Create context-aware strictness levels
-- [ ] Implement suggest-fix workflow
-- [ ] Build per-character knowledge database
-- [ ] Verify all cross-chapter callbacks
-- [ ] Rank error severity appropriately
+- [x] Implement continuous background validation
+- [x] Create context-aware strictness levels
+- [x] Implement suggest-fix workflow
+- [x] Build per-character knowledge database
+- [x] Verify all cross-chapter callbacks
+- [x] Rank error severity appropriately
 
 ### 6.6 Chapter Refiner
 - [ ] Support multi-level refinement scope
