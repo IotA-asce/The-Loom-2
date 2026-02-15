@@ -379,12 +379,12 @@
 - [x] Support user cliffhanger selection per chapter
 
 ### 6.3 Content Composer
-- [ ] Implement iterative generation (draft→review→expand→polish)
-- [ ] Add timeout/retry + user intervention for stuck generation
-- [ ] Show complete polished chapter (no streaming)
-- [ ] Enforce style guide throughout
-- [ ] Match original dialogue-to-narration ratio
-- [ ] Support rich descriptions (user adjustable)
+- [x] Implement iterative generation (draft→review→expand→polish)
+- [x] Add timeout/retry + user intervention for stuck generation
+- [x] Show complete polished chapter (no streaming)
+- [x] Enforce style guide throughout
+- [x] Match original dialogue-to-narration ratio
+- [x] Support rich descriptions (user adjustable)
 
 ### 6.4 Voice Synthesizer
 - [ ] Implement hybrid voice capture (examples + rules + profile)
