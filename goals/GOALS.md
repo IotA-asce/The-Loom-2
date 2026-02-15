@@ -338,12 +338,12 @@
 - [x] Stop on user satisfaction
 
 ### 5.6 Branch Comparator
-- [ ] Implement 8-dimension comparison
-- [ ] Create tree diagram visualization
-- [ ] Calculate character fate similarity
-- [ ] Show detailed similarities with toggle
-- [ ] Support full arc comparison scope
-- [ ] Allow unlimited branch comparison
+- [x] Implement 8-dimension comparison
+- [x] Create tree diagram visualization
+- [x] Calculate character fate similarity
+- [x] Show detailed similarities with toggle
+- [x] Support full arc comparison scope
+- [x] Allow unlimited branch comparison
 
 ### 5.7 Data Storage
 - [ ] Create Branch table
