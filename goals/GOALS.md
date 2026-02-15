@@ -270,13 +270,13 @@
 - [x] Calculate branching potential scores
 
 ### 4.3 Scoring and Ranking
-- [ ] Calculate multi-dimension scores
-- [ ] Implement branching potential algorithm
-- [ ] Calculate narrative weight
-- [ ] Identify affected characters
-- [ ] Count downstream events
-- [ ] Estimate branch complexity
-- [ ] Apply diversity filters
+- [x] Calculate multi-dimension scores
+- [x] Implement branching potential algorithm
+- [x] Calculate narrative weight
+- [x] Identify affected characters
+- [x] Count downstream events
+- [x] Estimate branch complexity
+- [x] Apply diversity filters
 
 ### 4.4 Data Storage
 - [ ] Create AnchorEvent table
