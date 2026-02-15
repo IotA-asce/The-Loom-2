@@ -441,7 +441,7 @@
 - [x] Add toast notification system
 
 ### 7.2 Library Manager
-- [ ] Support adaptive view (grid/list/compact)
+- [x] Support adaptive view (grid/list/compact)
 - [ ] Implement both + auto-organization (folders + tags + AI)
 - [ ] Add titles-only search (fast, fuzzy)
 - [ ] Nest generated stories under source manga
