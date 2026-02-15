@@ -256,11 +256,11 @@
 ## Component 4: Anchor Event Detector
 
 ### 4.1 Candidate Filtering
-- [ ] Filter by significance (MODERATE+)
-- [ ] Filter by major character involvement
-- [ ] Analyze causal impact
-- [ ] Apply diversity constraints
-- [ ] Create candidate pool builder
+- [x] Filter by significance (MODERATE+)
+- [x] Filter by major character involvement
+- [x] Analyze causal impact
+- [x] Apply diversity constraints
+- [x] Create candidate pool builder
 
 ### 4.2 LLM Analysis
 - [ ] Create anchor analysis prompt
