@@ -428,3 +428,4 @@ export function TooltipContent({ children }: TooltipContentProps) {
 // Animated
 // ============================================================================
 export { Animated, StaggerContainer, HoverLift } from './Animated';
+export { ToastProvider, useToast } from './Toast';
