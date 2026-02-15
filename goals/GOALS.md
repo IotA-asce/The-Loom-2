@@ -371,12 +371,12 @@
 - [x] Implement event-based memory derivation
 
 ### 6.2 Outline Architect
-- [ ] Always show outline before writing (mandatory approval)
-- [ ] Generate very detailed outlines (dialogue snippets)
-- [ ] Support suggestion-based modification
-- [ ] Mirror original manga structure variety
-- [ ] Plan scene-by-scene emotional arcs
-- [ ] Support user cliffhanger selection per chapter
+- [x] Always show outline before writing (mandatory approval)
+- [x] Generate very detailed outlines (dialogue snippets)
+- [x] Support suggestion-based modification
+- [x] Mirror original manga structure variety
+- [x] Plan scene-by-scene emotional arcs
+- [x] Support user cliffhanger selection per chapter
 
 ### 6.3 Content Composer
 - [ ] Implement iterative generation (draft→review→expand→polish)
