@@ -481,19 +481,19 @@
 - [x] Allow user rating and notes
 
 ### 7.6 Branch Studio (106 hrs)
-- [ ] Create comparison grid view (2-3 columns side-by-side)
-- [ ] Implement branch generation settings panel
-- [ ] Build branch cards with premise display and preview
-- [ ] Create tree visualization mode for branch relationships
-- [ ] Implement premise editing interface with validation
-- [ ] Build branch selection workflow with confirmation
-- [ ] Add regenerate with feedback mechanism
-- [ ] Implement variation grouping by premise similarity
-- [ ] Create "Continue to Story Generation" flow
-- [ ] Add generation settings panel (creativity, style, length)
-- [ ] Implement outline preview before full generation
-- [ ] Add keyboard shortcuts (navigation, selection, actions)
-- [ ] Ensure full accessibility support
+- [x] Create comparison grid view (2-3 columns side-by-side)
+- [x] Implement branch generation settings panel
+- [x] Build branch cards with premise display and preview
+- [x] Create tree visualization mode for branch relationships
+- [x] Implement premise editing interface with validation
+- [x] Build branch selection workflow with confirmation
+- [x] Add regenerate with feedback mechanism
+- [x] Implement variation grouping by premise similarity
+- [x] Create "Continue to Story Generation" flow
+- [x] Add generation settings panel (creativity, style, length)
+- [x] Implement outline preview before full generation
+- [x] Add keyboard shortcuts (navigation, selection, actions)
+- [x] Ensure full accessibility support
 
 ### 7.7 Story Reader & Editor (112 hrs)
 - [ ] Implement vertical scroll reading mode (default)
