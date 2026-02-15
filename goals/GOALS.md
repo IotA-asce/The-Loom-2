@@ -314,12 +314,12 @@
 - [x] Validate premises (plausibility + story-fit + interest)
 
 ### 5.3 Branch Variation Generator
-- [ ] Generate 2-5 branches per anchor (anchor-dependent)
-- [ ] Differentiate by consequence type (personal/political/cosmic)
-- [ ] Implement theme progression
-- [ ] Support user mood preference (hopeful/tragic/mixed/dark)
-- [ ] Implement adaptive trajectory depth
-- [ ] Project arcs for all affected characters
+- [x] Generate 2-5 branches per anchor (anchor-dependent)
+- [x] Differentiate by consequence type (personal/political/cosmic)
+- [x] Implement theme progression
+- [x] Support user mood preference (hopeful/tragic/mixed/dark)
+- [x] Implement adaptive trajectory depth
+- [x] Project arcs for all affected characters
 
 ### 5.4 Consistency Validator
 - [ ] Implement context-aware strictness
