@@ -436,7 +436,7 @@
 - [x] Build desktop-first responsive design
 - [x] Implement subtle Apple-style animations (200-400ms)
 - [x] Apply airy layout density (generous whitespace)
-- [ ] Place primary actions contextually
+- [x] Place primary actions contextually
 - [ ] Implement keyboard shortcuts
 - [ ] Add toast notification system
 
