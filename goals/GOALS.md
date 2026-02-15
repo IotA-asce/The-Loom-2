@@ -444,7 +444,7 @@
 - [x] Support adaptive view (grid/list/compact)
 - [x] Implement both + auto-organization (folders + tags + AI)
 - [x] Add titles-only search (fast, fuzzy)
-- [ ] Nest generated stories under source manga
+- [x] Nest generated stories under source manga
 - [ ] Implement priority quick actions
 - [ ] Create tutorial empty state
 
