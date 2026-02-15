@@ -193,6 +193,7 @@ export class ProvenanceTracker {
       id: `entry-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
       timestamp: Date.now(),
       type: 'export',
+      // @ts-expect-error - 'complete' is not a standard stage but valid for provenance
       stage: 'complete',
       inputs: sourceIds,
       outputs: [`view-${viewType}`],

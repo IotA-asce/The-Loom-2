@@ -15,7 +15,7 @@ import type {
   ProviderCapabilities,
   RequestMetrics,
 } from './types';
-import { LLMErrorCode } from './types';
+import { LLMErrorCode, type ImageContent } from './types';
 import type { LLMProviderConfig } from '@/stores/configStore';
 import { LLMError } from '@/lib/errors/llm-error';
 
@@ -409,5 +409,28 @@ export class GeminiProvider implements LLMProvider {
     }
     
     return new LLMError(message, LLMErrorCode.API_ERROR);
+  }
+  
+  /**
+   * Analyze images with a prompt
+   */
+  async analyzeImages(images: string[], prompt: string): Promise<string> {
+    // Convert images to multimodal message format
+    const messages: MultimodalMessage[] = [
+      {
+        role: 'user',
+        content: [
+          ...images.map((img): ImageContent => ({
+            type: 'image',
+            data: img.startsWith('data:') ? img.split(',')[1] : img,
+            mimeType: 'image/jpeg',
+          })),
+          { type: 'text', text: prompt },
+        ],
+      },
+    ];
+    
+    const response = await this.complete({ messages });
+    return response.content;
   }
 }

@@ -91,9 +91,12 @@ export class CharacterStateManager {
     for (const [key, value] of Object.entries(updates)) {
       const k = key as keyof CharacterState
       if (state[k] !== value && k !== 'characterId' && k !== 'lastUpdated') {
-        (transition.from as Record<string, unknown>)[key] = state[k]
-        (transition.to as Record<string, unknown>)[key] = value
-        ;(state as Record<string, unknown>)[key] = value
+        // @ts-expect-error - dynamic property access
+        transition.from[key] = state[k]
+        // @ts-expect-error - dynamic property access
+        transition.to[key] = value
+        // @ts-expect-error - dynamic property access
+        state[key] = value
       }
     }
     

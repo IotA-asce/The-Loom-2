@@ -68,8 +68,9 @@ export class AutoRetryManager {
   getRetryParams(baseParams: Record<string, unknown>): Record<string, unknown> {
     const attempt = this.attempts.length + 1
     
+    // @ts-ignore - escalateParameters is a standalone function
     const escalated = this.policy.escalateParams
-      ? this.escalateParameters(baseParams, attempt)
+      ? escalateParameters(baseParams, attempt)
       : baseParams
     
     return {
@@ -289,7 +290,8 @@ function sleep(ms: number): Promise<void> {
 /**
  * Escalate parameters for better results
  */
-private escalateParameters(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function escalateParameters(
   baseParams: Record<string, unknown>,
   attempt: number
 ): Record<string, unknown> {

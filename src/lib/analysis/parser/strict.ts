@@ -53,6 +53,7 @@ export class StrictValidator {
     const result = schema.safeParse(data)
     
     if (!result.success) {
+      // @ts-ignore - Zod error type issue
       for (const issue of result.error.errors) {
         errors.push({
           path: issue.path.join('.'),

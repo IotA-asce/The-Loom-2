@@ -215,6 +215,14 @@ export interface LLMProvider {
    * @param messages - Messages to count
    */
   estimateTokenCount(messages: Message[] | MultimodalMessage[]): number;
+  
+  /**
+   * Analyze images with a prompt
+   * @param images - Array of image URLs or base64 data
+   * @param prompt - Analysis prompt
+   * @returns Analysis result as string
+   */
+  analyzeImages(images: string[], prompt: string): Promise<string>;
 }
 
 /**

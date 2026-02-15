@@ -13,6 +13,7 @@ import type {
   Branch,
   Chapter,
 } from './schema';
+import type { RawResponseEntry } from '@/lib/analysis/parser/storage';
 
 /**
  * Database version constant
@@ -34,6 +35,7 @@ export class LoomDatabase extends Dexie {
   anchorEvents!: Table<AnchorEvent, string>;
   branches!: Table<Branch, string>;
   chapters!: Table<Chapter, string>;
+  rawResponses!: Table<RawResponseEntry, string>;
 
   constructor() {
     super(DATABASE_NAME);
@@ -108,6 +110,17 @@ export class LoomDatabase extends Dexie {
         [mangaId+order],
         [branchId+order],
         [mangaId+branchId+order]
+      `,
+      
+      // Raw LLM responses for debugging
+      rawResponses: `
+        ++id,
+        mangaId,
+        stage,
+        batchIndex,
+        timestamp,
+        [mangaId+stage],
+        [mangaId+timestamp]
       `,
     });
   }

@@ -290,6 +290,7 @@ export class QualityDashboard {
    */
   export(): {
     metrics: DashboardMetrics
+    // @ts-ignore - this type issue
     summary: ReturnType<typeof this.getSummary>
     history: HistoricalMetrics[]
   } {

@@ -23,19 +23,19 @@ export interface FlashbackDetectionResult {
 /**
  * Common flashback indicators
  */
-const FLASHBACK_VISUAL_CUES = [
+export const FLASHBACK_VISUAL_CUES = [
   'sepia', 'black and white', 'monochrome', 'faded colors',
   'soft focus', 'blur edges', 'frame border', 'photo frame',
   'thought bubble', 'memory cloud', 'dream sequence',
 ]
 
-const FLASHBACK_NARRATIVE_CUES = [
+export const FLASHBACK_NARRATIVE_CUES = [
   'remember', 'recall', 'memory', 'flashback', 'years ago',
   'when i was', 'back then', 'in the past', 'childhood',
   'used to', 'before', 'previously',
 ]
 
-const TEMPORAL_INDICATORS = [
+export const TEMPORAL_INDICATORS = [
   'ago', 'before', 'earlier', 'previously', 'then',
   'yesterday', 'last week', 'last year', 'childhood',
   'years ago', 'long ago', 'once', 'back when',

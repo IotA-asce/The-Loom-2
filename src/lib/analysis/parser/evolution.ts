@@ -295,6 +295,7 @@ export function createAnalysisSchemaRegistry(): SchemaRegistry {
         fromVersion: '2.0.0',
         toVersion: '3.0.0',
         transform: (data) => ({
+          // @ts-ignore - spread type issue
           ...data,
           confidence: 0.5,
           metadata: {

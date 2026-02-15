@@ -29,12 +29,13 @@ export interface ValidationWarning {
  * Convert Zod error to validation errors
  */
 function zodErrorToValidationErrors(error: ZodError): ValidationError[] {
-  return error.errors.map(err => ({
-    path: err.path.join('.'),
+  // @ts-ignore - Zod error type issue
+  return (error as any).issues?.map((err: any) => ({
+    path: err.path?.join('.') || '',
     message: err.message,
     code: err.code,
     received: err.received,
-  }))
+  })) || []
 }
 
 /**

@@ -14,7 +14,7 @@ import type {
   MultimodalMessage,
   ProviderCapabilities,
 } from './types';
-import { LLMErrorCode } from './types';
+import { LLMErrorCode, type ImageContent } from './types';
 import type { LLMProviderConfig } from '@/stores/configStore';
 import { LLMError } from '@/lib/errors/llm-error';
 
@@ -416,5 +416,27 @@ export class AnthropicProvider implements LLMProvider {
     }
 
     return new LLMError(message, LLMErrorCode.API_ERROR, { provider: this.id });
+  }
+  
+  /**
+   * Analyze images with a prompt
+   */
+  async analyzeImages(images: string[], prompt: string): Promise<string> {
+    const messages: MultimodalMessage[] = [
+      {
+        role: 'user',
+        content: [
+          ...images.map((img): ImageContent => ({
+            type: 'image',
+            data: img.startsWith('data:') ? img.split(',')[1] : img,
+            mimeType: 'image/jpeg',
+          })),
+          { type: 'text', text: prompt },
+        ],
+      },
+    ];
+    
+    const response = await this.complete({ messages });
+    return response.content;
   }
 }
