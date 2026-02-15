@@ -450,7 +450,7 @@
 
 ### 7.3 Upload Flow
 - [x] Create modal upload experience
-- [ ] Implement drag-and-drop with visual feedback
+- [x] Implement drag-and-drop with visual feedback
 - [ ] Support optional chapter segmentation review
 - [ ] Build queue display with polling progressbar
 - [ ] Handle errors inline
