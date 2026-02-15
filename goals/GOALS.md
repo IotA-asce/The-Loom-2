@@ -263,11 +263,11 @@
 - [x] Create candidate pool builder
 
 ### 4.2 LLM Analysis
-- [ ] Create anchor analysis prompt
-- [ ] Implement batch candidate processing
-- [ ] Generate alternative outcomes (2-4 per anchor)
-- [ ] Classify anchor types (9 types)
-- [ ] Calculate branching potential scores
+- [x] Create anchor analysis prompt
+- [x] Implement batch candidate processing
+- [x] Generate alternative outcomes (2-4 per anchor)
+- [x] Classify anchor types (9 types)
+- [x] Calculate branching potential scores
 
 ### 4.3 Scoring and Ranking
 - [ ] Calculate multi-dimension scores
