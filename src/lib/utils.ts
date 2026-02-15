@@ -5,6 +5,14 @@
  */
 
 /**
+ * Class name utility - merges Tailwind classes
+ * Simple implementation without clsx/tailwind-merge for now
+ */
+export const cn = (...classes: (string | boolean | undefined | null)[]): string => {
+  return classes.filter(Boolean).join(' ');
+};
+
+/**
  * Sleep for a specified duration
  * @param ms - Duration in milliseconds
  * @returns Promise that resolves after the delay

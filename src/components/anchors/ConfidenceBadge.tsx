@@ -5,7 +5,7 @@
  */
 
 import { cn } from '@/lib/utils'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui'
 
 interface ConfidenceBadgeProps {
   confidence: number // 0-1

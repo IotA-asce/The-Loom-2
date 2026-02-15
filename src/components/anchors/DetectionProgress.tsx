@@ -4,7 +4,7 @@
  * Progress indicator for anchor detection process
  */
 
-import { Progress } from '@/components/ui/progress'
+import { Progress } from '@/components/ui'
 import { cn } from '@/lib/utils'
 import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 

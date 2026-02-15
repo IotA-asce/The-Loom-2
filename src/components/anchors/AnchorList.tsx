@@ -7,15 +7,16 @@
 import { useMemo, useState } from 'react'
 import type { AnchorEvent } from '@/lib/db/schema'
 import { AnchorCard } from './AnchorCard'
-import { Input } from '@/components/ui/input'
 import { 
+  Input,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@/components/ui'
 import { Search, Filter } from 'lucide-react'
+import type { ChangeEvent } from 'react'
 
 interface AnchorListProps {
   anchors: AnchorEvent[]
@@ -97,13 +98,13 @@ export function AnchorList({
           <Input
             placeholder="Search anchors..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
             className="pl-9"
           />
         </div>
         
         <div className="flex gap-2">
-          <Select value={statusFilter} onValueChange={(v) => setStatusFilter(v as FilterStatus)}>
+          <Select value={statusFilter} onValueChange={(v: string) => setStatusFilter(v as FilterStatus)}>
             <SelectTrigger className="flex-1">
               <Filter className="w-4 h-4 mr-2" />
               <SelectValue placeholder="Status" />
@@ -118,7 +119,7 @@ export function AnchorList({
             </SelectContent>
           </Select>
           
-          <Select value={significanceFilter} onValueChange={(v) => setSignificanceFilter(v as FilterSignificance)}>
+          <Select value={significanceFilter} onValueChange={(v: string) => setSignificanceFilter(v as FilterSignificance)}>
             <SelectTrigger className="w-[140px]">
               <SelectValue placeholder="Significance" />
             </SelectTrigger>

@@ -7,8 +7,8 @@ import type { AnchorAnalysis } from '../analysis/analyzer'
 import type { BranchingScore } from './branching'
 import type { NarrativeWeight } from './narrative'
 import type { RelevanceScore } from './relevance'
-import type { QualityMetrics } from '@/lib/analysis/quality'
-import { calculateQualityMultiplier, applyMultiplier } from './multiplier'
+import type { QualityMetrics } from './multiplier'
+import { calculateQualityMultiplier, applyMultiplier, DEFAULT_QUALITY_METRICS } from './multiplier'
 
 export interface CompositeScore {
   raw: number
@@ -41,8 +41,9 @@ export function calculateCompositeScore(
   candidate: AnchorCandidate,
   analysis: AnchorAnalysis,
   components: ScoreComponents,
-  quality: QualityMetrics
+  quality?: QualityMetrics
 ): CompositeScore {
+  const qualityMetrics = quality ?? DEFAULT_QUALITY_METRICS
   const rawComponents = {
     branching: components.branching.score,
     narrative: components.narrative.score,
@@ -53,7 +54,7 @@ export function calculateCompositeScore(
               (rawComponents.narrative * 0.35) +
               (rawComponents.relevance * 0.25)
   
-  const multiplier = calculateQualityMultiplier(quality)
+  const multiplier = calculateQualityMultiplier(qualityMetrics)
   const final = applyMultiplier(raw, multiplier)
   
   const tier: CompositeScore['tier'] = 

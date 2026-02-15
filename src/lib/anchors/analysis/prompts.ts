@@ -25,7 +25,7 @@ Context:
 ${surroundingEvents.map(e => `- ${e.description} (${e.significance})`).join('\n')}
 
 Characters Involved:
-${involvedCharacters.map(c => `- ${c.name} (${c.importance}): ${c.traits.join(', ')}`).join('\n')}
+${involvedCharacters.map(c => `- ${c.name} (${c.importance}): ${c.personality || 'No personality info'}`).join('\n')}
 
 Task: Evaluate the branching potential of this event. How could the story diverge?
 What alternative paths could characters take? What are the consequences?

@@ -6,20 +6,21 @@
 
 import { useState } from 'react'
 import type { AnchorEvent, AlternativeOutcome } from '@/lib/db/schema'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
 import {
+  Button,
+  Input,
+  Textarea,
+  Label,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+  Card, CardContent, CardHeader, CardTitle,
+} from '@/components/ui'
 import { Plus, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import type { ChangeEvent, MouseEvent } from 'react'
 
 interface ManualAnchorFormProps {
   initialData?: Partial<AnchorEvent>
@@ -132,7 +133,7 @@ export function ManualAnchorForm({
           <Input
             id="title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
             placeholder="Anchor event title"
           />
         </div>
@@ -145,7 +146,7 @@ export function ManualAnchorForm({
             min={1}
             max={totalPages}
             value={pageNumber}
-            onChange={(e) => setPageNumber(parseInt(e.target.value) || 1)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setPageNumber(parseInt(e.target.value) || 1)}
           />
         </div>
       </div>
@@ -164,7 +165,7 @@ export function ManualAnchorForm({
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label>Type</Label>
-          <Select value={type} onValueChange={(v) => setType(v as AnchorEvent['type'])}>
+          <Select value={type} onValueChange={(v: string) => setType(v as AnchorEvent['type'])}>
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
@@ -180,7 +181,7 @@ export function ManualAnchorForm({
         
         <div className="space-y-2">
           <Label>Significance</Label>
-          <Select value={significance} onValueChange={(v) => setSignificance(v as AnchorEvent['significance'])}>
+          <Select value={significance} onValueChange={(v: string) => setSignificance(v as AnchorEvent['significance'])}>
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
@@ -202,7 +203,8 @@ export function ManualAnchorForm({
             <button
               key={char}
               type="button"
-              onClick={() => {
+              onClick={(e: MouseEvent<HTMLButtonElement>) => {
+                e.preventDefault()
                 setCharacters(chars => 
                   chars.includes(char) 
                     ? chars.filter(c => c !== char)
@@ -287,7 +289,7 @@ export function ManualAnchorForm({
                         type="button"
                         size="icon"
                         variant="ghost"
-                        onClick={() => removeConsequence(altIdx, consIdx)}
+                        onClick={(e: MouseEvent<HTMLButtonElement>) => { e.preventDefault(); removeConsequence(altIdx, consIdx) }}
                       >
                         <X className="w-4 h-4" />
                       </Button>

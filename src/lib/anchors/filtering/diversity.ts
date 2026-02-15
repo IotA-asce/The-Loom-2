@@ -7,7 +7,7 @@ import type { ParsedTimelineEvent } from '@/lib/analysis/parser/validation'
 export interface DiversityConfig {
   minDistance: number // Minimum pages between anchors
   maxPerChapter: number
-  spreadAcrossChapters: boolean
+  spreadAcrossChapters?: boolean  // Optional
 }
 
 /**

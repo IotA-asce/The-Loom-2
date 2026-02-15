@@ -2,7 +2,18 @@
  * Quality multiplier calculation
  */
 
-import type { QualityMetrics } from '@/lib/analysis/quality'
+/**
+ * Quality metrics interface (simplified)
+ */
+export interface QualityMetrics {
+  confidence: number
+  completeness: {
+    overall: number
+    characters: number
+    timeline: number
+    themes: number
+  }
+}
 
 export interface MultiplierConfig {
   base: number
@@ -14,6 +25,17 @@ export const DEFAULT_MULTIPLIER_CONFIG: MultiplierConfig = {
   base: 1.0,
   qualityFactor: 0.3,
   confidenceThreshold: 0.6,
+}
+
+// Default quality metrics for when none provided
+export const DEFAULT_QUALITY_METRICS: QualityMetrics = {
+  confidence: 0.7,
+  completeness: {
+    overall: 0.7,
+    characters: 0.7,
+    timeline: 0.7,
+    themes: 0.7,
+  },
 }
 
 /**

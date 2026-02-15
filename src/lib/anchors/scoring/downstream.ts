@@ -22,11 +22,11 @@ export function countDownstreamEvents(
     
     visited.add(current.id)
     
-    const node = causalGraph.nodes.find(n => n.id === current.id)
+    const node = causalGraph.nodes.get(current.id)
     if (node) {
       for (const link of node.outgoing) {
-        if (!visited.has(link.target)) {
-          queue.push({ id: link.target, level: current.level + 1 })
+        if (!visited.has(link.to)) {
+          queue.push({ id: link.to, level: current.level + 1 })
         }
       }
     }
@@ -58,11 +58,11 @@ export function getAffectedCharacters(
     const chars = eventCharacters.get(current) || []
     chars.forEach(c => affected.add(c))
     
-    const node = causalGraph.nodes.find(n => n.id === current)
+    const node = causalGraph.nodes.get(current)
     if (node) {
       for (const link of node.outgoing) {
-        if (!visited.has(link.target)) {
-          queue.push(link.target)
+        if (!visited.has(link.to)) {
+          queue.push(link.to)
         }
       }
     }

@@ -16,6 +16,7 @@ import {
   AlertCircle
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import type { MouseEvent } from 'react'
 
 interface AnchorCardProps {
   anchor: AnchorEvent
@@ -114,7 +115,7 @@ export function AnchorCard({
         <div className="absolute top-2 right-2 flex gap-1 bg-background rounded shadow-sm">
           {onApprove && (
             <button
-              onClick={(e) => { e.stopPropagation(); onApprove() }}
+              onClick={(e: MouseEvent) => { e.stopPropagation(); onApprove() }}
               className="p-1.5 hover:bg-green-100 rounded text-green-600"
               title="Approve"
             >
@@ -123,7 +124,7 @@ export function AnchorCard({
           )}
           {onReject && (
             <button
-              onClick={(e) => { e.stopPropagation(); onReject() }}
+              onClick={(e: MouseEvent) => { e.stopPropagation(); onReject() }}
               className="p-1.5 hover:bg-red-100 rounded text-red-600"
               title="Reject"
             >

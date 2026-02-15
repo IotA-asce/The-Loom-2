@@ -11,11 +11,11 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Badge } from '@/components/ui/badge'
-import { ScrollArea } from '@/components/ui/scroll-area'
+  Button,
+  Tabs, TabsContent, TabsList, TabsTrigger,
+  Badge,
+  ScrollArea,
+} from '@/components/ui'
 import {
   GitBranch,
   Users,
@@ -26,6 +26,7 @@ import {
   Edit3,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import type { MouseEvent } from 'react'
 
 interface AnchorDetailModalProps {
   anchor: AnchorEvent | null
@@ -230,7 +231,7 @@ export function AnchorDetailModal({
                       <Button
                         className="mt-3 w-full"
                         size="sm"
-                        onClick={(e) => {
+                        onClick={(e: MouseEvent) => {
                           e.stopPropagation()
                           onSelectAlternative(alt.id)
                         }}

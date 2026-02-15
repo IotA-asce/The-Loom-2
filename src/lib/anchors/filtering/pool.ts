@@ -16,6 +16,7 @@ export interface CandidatePoolConfig {
   diversity: {
     minDistance: number
     maxPerChapter: number
+    spreadAcrossChapters?: boolean  // Optional for backward compatibility
   }
   maxCandidates: number
 }

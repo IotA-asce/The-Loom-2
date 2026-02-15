@@ -45,12 +45,12 @@ function getDownstreamEvents(graph: CausalGraph, eventId: string): string[] {
   const visit = (id: string) => {
     if (visited.has(id)) return
     visited.add(id)
-    const node = graph.nodes.find(n => n.id === id)
-    node?.outgoing.forEach(link => visit(link.target))
+    const node = graph.nodes.get(id)
+    node?.outgoing.forEach(link => visit(link.to))
   }
   
-  const startNode = graph.nodes.find(n => n.id === eventId)
-  startNode?.outgoing.forEach(link => visit(link.target))
+  const startNode = graph.nodes.get(eventId)
+  startNode?.outgoing.forEach(link => visit(link.to))
   
   return Array.from(visited).filter(id => id !== eventId)
 }

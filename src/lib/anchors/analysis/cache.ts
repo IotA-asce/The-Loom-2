@@ -9,20 +9,36 @@ const CACHE_TTL_MS = 24 * 60 * 60 * 1000 // 24 hours
 
 interface CacheEntry {
   eventId: string
-  analysis: unknown
+  analysis: {
+    branchPotential: {
+      level: 'high' | 'moderate' | 'low'
+      points: string[]
+      alternatives: string[]
+      consequences: string[]
+      confidence: number
+    }
+    emotionalImpact: {
+      primaryEmotions: string[]
+      emotionalStakes: string
+      readerImpact: string
+      relationshipEffects: string[]
+      confidence: number
+    }
+    overallScore: number
+  }
   timestamp: number
 }
 
 /**
  * Get cached analysis for event
  */
-export async function getCachedAnalysis(eventId: string): Promise<unknown | null> {
+export async function getCachedAnalysis(eventId: string): Promise<CacheEntry['analysis'] | null> {
   try {
     const db = await getDatabase()
     const cached = await db.anchorEventCache?.get(CACHE_PREFIX + eventId)
     
     if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
-      return cached.analysis
+      return cached.analysis as unknown as CacheEntry['analysis']
     }
     return null
   } catch {
@@ -33,7 +49,7 @@ export async function getCachedAnalysis(eventId: string): Promise<unknown | null
 /**
  * Cache analysis for event
  */
-export async function cacheAnalysis(eventId: string, analysis: unknown): Promise<void> {
+export async function cacheAnalysis(eventId: string, analysis: CacheEntry['analysis']): Promise<void> {
   try {
     const db = await getDatabase()
     await db.anchorEventCache?.put({
