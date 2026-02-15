@@ -305,13 +305,13 @@
 - [x] Package context in timeline narrative format
 
 ### 5.2 Premise Generator
-- [ ] Transform alternatives into premises
-- [ ] Generate "what if" statements
-- [ ] Create branch titles and descriptions
-- [ ] Implement hybrid format (hook + subtitle)
-- [ ] Support theme-based premise distinctness
-- [ ] Add user guidance (character focus)
-- [ ] Validate premises (plausibility + story-fit + interest)
+- [x] Transform alternatives into premises
+- [x] Generate "what if" statements
+- [x] Create branch titles and descriptions
+- [x] Implement hybrid format (hook + subtitle)
+- [x] Support theme-based premise distinctness
+- [x] Add user guidance (character focus)
+- [x] Validate premises (plausibility + story-fit + interest)
 
 ### 5.3 Branch Variation Generator
 - [ ] Generate 2-5 branches per anchor (anchor-dependent)
